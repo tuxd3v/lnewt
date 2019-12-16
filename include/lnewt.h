@@ -74,7 +74,7 @@ LUALIB_API int luaopen_newt(lua_State *L);
 /** exported functions **/
 
 /* root functions */
-static int L_Init(lua_State *L);
+static int L_Init( lua_State *L );
 static int L_Cls(lua_State *L);
 static int L_WaitForKey(lua_State *L);
 static int L_ClearKeyBuffer(lua_State *L);
