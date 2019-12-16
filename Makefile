@@ -139,7 +139,7 @@ install:
 	@if [ -L /usr/lib/lua/5.3/lnewt.so ];then	\
 		rm /usr/lib/lua/5.3/lnewt.so;		\
 	fi
-	$(info Creating soname symLink ........: ${NAME}.so in '/usr/lib/lua/5.3')
+	$(info Creating soname symLink .............: ${NAME}.so in '/usr/lib/lua/5.3')
 	@ln -s $(LDIR)/$(NAME).so.$(VERSION) /usr/lib/lua/5.3/lnewt.so
 
 .PHONY: clean
