@@ -139,7 +139,8 @@ install:
 	@if [ -L /usr/lib/lua/5.3/lnewt.so ];then	\
 		rm /usr/lib/lua/5.3/lnewt.so;		\
 	fi
-	ln -s $(LDIR)/$(NAME).so.$(VERSION) /usr/lib/lua/5.3/lnewt.so
+	@ln -s $(LDIR)/$(NAME).so.$(VERSION) /usr/lib/lua/5.3/lnewt.so
+	ls -l /usr/lib/lua/5.3/lnewt.so
 
 .PHONY: clean
 clean:
