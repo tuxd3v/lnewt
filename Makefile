@@ -98,7 +98,13 @@ DEBUG_OBJS	:= $(DEBUG_SRCS:.c=.o)
 
 TEST_OBJS	:= $(TEST_SRCS:.c=.o)
 
-
+## ATS Installation ENVIRONMENT PATHs
+#
+ifeq ($(MAKECMDGOALS),install)
+	# Shared Library Module
+ifndef LDIR
+LDIR		:= /usr/local/lib/lua/5.3
+endif
 ## Binaries
 #TEST
 TEST_BIN	:= main
