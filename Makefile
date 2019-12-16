@@ -103,7 +103,6 @@ TEST_OBJS	:= $(TEST_SRCS:.c=.o)
 #TEST
 TEST_BIN	:= main
 
-
 # project c/h/lua  relative paths
 SRCS_PATH	:= src
 HDRS_PATH	:= include
