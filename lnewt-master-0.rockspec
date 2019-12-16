@@ -2,7 +2,7 @@ rockspec_format	= "1.0"
 package		= "lnewt"
 version		= "master-0"
 description = {
-	summary		= "Lua Newt Library Bindings..",
+	summary		= "Lua Newt Library Bindings...",
 	detailed	= [[
 		This Library, provide support bindings for Newt Library.
 	]],
