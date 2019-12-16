@@ -105,6 +105,7 @@ ifeq ($(MAKECMDGOALS),install)
 ifndef LDIR
 LDIR		:= /usr/local/lib/lua/5.3
 endif
+endif
 ## Binaries
 #TEST
 TEST_BIN	:= main
