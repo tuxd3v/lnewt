@@ -298,9 +298,9 @@ static int L_PushHelpLine( lua_State *L ) {
 	const char *text;
 
 	if( ( lua_gettop( L ) < 1 ) || ( lua_isnil( L, 1 ) == 1 ) )
-		text = NULL;
+		text	= NULL;
 	else
-		text = luaL_checkstring( L, 1 );
+		text	= luaL_checkstring( L, 1 );
 
 	newtPushHelpLine( text );
 	return 0;
