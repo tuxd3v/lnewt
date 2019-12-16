@@ -135,7 +135,7 @@ $(NAME).so.$(VERSION): $(LNEWT_OBJS)
 .PHONY: install
 install:
 	cp $(NAME).so.$(VERSION) $(LDIR)
-	ln -s (LDIR)/$(NAME).so.$(VERSION) /usr/local/lib/lua/5.3/lnewt.so 
+	ln -s (LDIR)/$(NAME).so.$(VERSION) /usr/lib/lua/5.3/lnewt.so 
 
 .PHONY: clean
 clean:
