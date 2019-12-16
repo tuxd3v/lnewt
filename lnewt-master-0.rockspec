@@ -8,7 +8,7 @@ description = {
 	]],
 	homepage	= "https://github.com/tuxd3v/lnewt",
 	license		= "See License..",
-	maintainer	= "tuxd3v <tuxd3v@sapo.pt>"
+	maintainer	= "tuxd3v <tuxd3v@sapo.pt>",
 }
 source = {
 	url	= "git://github.com/tuxd3v/lnewt",
@@ -16,7 +16,7 @@ source = {
 }
 dependencies = {
 	supported_platforms	= "linux",
-	"lua >= 5.3"
+	"lua >= 5.3",
 	--[[
 	"liblua-dev >= 5.3"
 		he doesn't know what is lua-dev, needed to provide "lualib.h","lauxlib.h","lua.h" headers to build shared library..
@@ -36,5 +36,5 @@ build = {
 	install_pass		= true,
 	install_variables	= { LDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version },
 	variables		= {},
-	modules			= { newt = "src/lnewt.c" }
+	modules			= { lnewt = "src/lnewt.c" }
 }
