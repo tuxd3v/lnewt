@@ -125,6 +125,11 @@ $(LNEWT_OBJS): $(LNEWT_SRCS) $(LNEWT_HDRS)
 $(NAME).so.$(VERSION): $(LNEWT_OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^
 
+.PHONY: install
+install:
+	cp $(NAME).so.$(VERSION) $(LDIR)
+	ln -s (LDIR)/$(NAME).so.$(VERSION) /usr/local/lib/lua/5.3/ats.so 
+
 .PHONY: clean
 clean:
 	rm -f $(NAME).o $(NAME).so.$(VERSION)
