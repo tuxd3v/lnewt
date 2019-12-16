@@ -5,7 +5,7 @@ Newt bindings library for Lua 5.3
 This is a simple [newt][newt] binding library for lua 5.3.
 
 This Library was first forked from [luanewt][luanewt] by [DavidFeng][1st_fork]..
-Later, it was forked by me from [DavidFeng][1st_fork]
+Later, it was forked by me from [luanewt][luanewt]
 
 It has not yet been tested, but will in Devuan..
 
