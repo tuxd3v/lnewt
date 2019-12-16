@@ -2,7 +2,7 @@ rockspec_format	= "1.0"
 package		= "lnewt"
 version		= "master-0"
 description = {
-	summary		= "Lua Newt Library Bindings..",
+	summary		= "Lua 5.3 Newt Library Bindings..",
 	detailed	= [[
 		This Library, provide support bindings for Newt Library.
 	]],
@@ -30,7 +30,7 @@ build = {
 	build_variables		= {},
 	install_target		= "install",
 	install_pass		= true,
-	install_variables	= { BINDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version, CONFDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version, LDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version, SERVICEDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version },
+	install_variables	= { LDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version },
 	variables		= {},
 	modules			= { ats = "src/lnewt.c" }
 }
