@@ -11,7 +11,7 @@ NAME		:= lnewt
 MAJOR		:= 0
 MINOR		:= 52
 FIX		:= 19
-VERSION		:= $(MAJOR).$(MINOR)
+VERSION		:= $(MAJOR).$(MINOR).$(FIX)
 
 
 ifeq ($(MAKECMDGOALS), all)
@@ -135,7 +135,7 @@ $(NAME).so.$(VERSION): $(LNEWT_OBJS)
 .PHONY: install
 install:
 	$(info Install new LNEWT Library ...........: ${NAME}.so.${VERSION} in '${LDIR}')
-	@install --preserve-timestamps --owner=root --group=root --mode=440 --target-directory=${LDIR} ${NAME}.so.${VERSION}
+	@install --preserve-timestamps --owner=root --group=root --mode=444 --target-directory=${LDIR} ${NAME}.so.${VERSION}
 	$(info Creating soname symLink .............: ${NAME}.so in '/usr/lib/lua/5.3')
 	@if [ -L /usr/lib/lua/5.3/lnewt.so ];then	\
 		rm /usr/lib/lua/5.3/lnewt.so;		\
