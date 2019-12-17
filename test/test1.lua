@@ -1,6 +1,6 @@
-#!/usr/bin/env lua53
+#!/usr/bin/env lua
 
-local newt = require('newt')
+local newt = require('lnewt')
 
 newt.Init()
 newt.Cls()
