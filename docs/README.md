@@ -48,10 +48,10 @@ It has not yet been tested, but will in Devuan..
 ##### B. Compile/Install/Remove manually, using make ( need to download first the code ie: with git, by browser).
  1. Compile
     *  ```lua
-    make
-    #or
-    make all
-    ```
+       make
+       #or
+       make all
+       ```
  2. Install
     * `make install`
  3. Clean local Objects
