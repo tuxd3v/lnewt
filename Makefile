@@ -49,7 +49,8 @@ ifdef ARCH
 override undefine ARCH
 endif
 ifeq ($(LONG_BIT),32)
-#ARCH		:=$(shell unset ARCH;${PWD}/aarch march)
+ARCH		:=$(shell unset ARCH;${PWD}/aarch march)
+ARCH		:=$(if $(findstring nil,$(ARCH)),,$(ARCH))
 ARCH		:=$(if $(findstring x86,$(MACHINE)),i386,$(ARCH))
 ARCH		:=$(if $(findstring aarch64,$(MACHINE)),armv7-a,$(ARCH))
 ARCH		:=$(if $(findstring android,$(MACHINE)),armv7,$(ARCH))
@@ -57,7 +58,8 @@ $(info ** ARCH     = $(ARCH) **)
 TUNE		:=$(shell ${PWD}/aarch mtune)
 TUNE		:=$(if $(findstring nil,$(TUNE)),,$(TUNE))
 else ifeq ($(LONG_BIT),64)
-#ARCH		:=$(shell unset ARCH;${PWD}/aarch march)
+ARCH		:=$(shell unset ARCH;${PWD}/aarch march)
+ARCH		:=$(if $(findstring nil,$(ARCH)),,$(ARCH))
 ARCH		:=$(if $(findstring x86,$(MACHINE)),x86-64,$(ARCH))
 ARCH		:=$(if $(findstring android,$(MACHINE)),armv7,$(ARCH))
 $(info ** ARCH     = $(ARCH) **)
@@ -79,6 +81,7 @@ TEST_CFLAGS	:= -march=$(ARCH) -DLUA_C89_NUMBERS -O3 -g -I$(IDIR)
 endif
 LDFLAGS		:= -shared -Wl,-soname,$(NAME).so.$(MAJOR) -l$(DEPS) # Linker Flags
 TEST_LDFLAGS	:= -L/usr/lib/aarch64-linux-gnu -l$(DEPS) -lm -ldl
+# end makegoals
 endif
 
 ## LNEWT source/headers.. Code Related
