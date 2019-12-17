@@ -43,7 +43,7 @@ Several independent Options: Master, Release and Manual.
  1. Install from master( last code, but more prone to errors.. )
     * `luarocks build https://raw.githubusercontent.com/tuxd3v/lnewt/master/lnewt-master-0.rockspec`
  2. Remove using LuaRocks
-    * `luarocks remove ats`
+    * `luarocks remove lnewt`
 
 ##### B. Compile/Install/Remove manually, using make ( need to download first the code ie: with git, by browser).
  1. Compile
@@ -52,7 +52,7 @@ Several independent Options: Master, Release and Manual.
     * `make install`
  3. Remove the downloaded code..
     * `make purge`
- 4. Remove ats
+ 4. Remove lnewt
     * `make remove`
 
 
