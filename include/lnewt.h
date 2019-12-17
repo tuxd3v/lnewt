@@ -69,7 +69,7 @@ typedef struct com_t * component;
 /** module registration **/
 
 /* open the library - used by require() */
-LUALIB_API int luaopen_newt(lua_State *L);
+LUALIB_API int luaopen_lnewt(lua_State *L);
 
 /** exported functions **/
 
