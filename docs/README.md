@@ -37,7 +37,7 @@ It has not yet been tested, but will in Devuan..
 
 ### Install or Remove
 ----
-Several independent Options: Master, Release and Manual.
+2 independent Build Options: Automatic,  Manual.
 
 ##### A. Using Luarocks 
  1. Install from master( last code, but more prone to errors.. )
@@ -47,13 +47,19 @@ Several independent Options: Master, Release and Manual.
 
 ##### B. Compile/Install/Remove manually, using make ( need to download first the code ie: with git, by browser).
  1. Compile
-    *  `make`
+    *  ```lua
+    make
+    #or
+    make all
+    ```
  2. Install
     * `make install`
- 3. Remove the downloaded code..
-    * `make purge`
- 4. Remove lnewt
-    * `make remove`
+ 3. Clean local Objects
+    * `make clean`
+ 4. Remove the downloaded code..
+    * Not yet implemented..
+ 5. Remove lnewt
+    * Not yet implemented..
 
 
 [newt]: https://en.wikipedia.org/wiki/Newt_(programming_library)
