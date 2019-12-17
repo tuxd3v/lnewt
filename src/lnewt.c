@@ -144,7 +144,7 @@ static const luaL_Reg R_comp_methods[] = {
 };
 
 
-LUALIB_API int luaopen_newt( lua_State *L ) {
+LUALIB_API int luaopen_lnewt( lua_State *L ) {
 
 	/* Newt.Component type & methods */
 	luaL_newmetatable( L, TYPE_COMPONENT );
