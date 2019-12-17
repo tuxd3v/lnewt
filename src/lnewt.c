@@ -182,7 +182,10 @@ LUALIB_API int luaopen_lnewt( lua_State *L ) {
 	luaL_push_const( "EXIT_FDREADY", NEWT_EXIT_FDREADY );
 	luaL_push_const( "EXIT_TIMER", NEWT_EXIT_TIMER );
 
-
+	/* 0.52.20 - add key 'KEY_RESIZE' to support screen resize as hotkey in form
+	 * https://pagure.io/newt/c/d861e991f015633599a345e839a2454b3bfb1efe?branch=master
+	 */
+	luaL_push_const( "KEY_RESIZE", NEWT_KEY_RESIZE );
 	luaL_push_const( "KEY_ESCAPE", NEWT_KEY_ESCAPE );
 	luaL_push_const( "KEY_RETURN", NEWT_KEY_RETURN );
 	luaL_push_const( "KEY_PGDN", NEWT_KEY_PGDN );
