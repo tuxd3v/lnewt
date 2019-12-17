@@ -53,9 +53,13 @@ It has not yet been tested, but will in Devuan..
        make all
        ```
  2. Install
-    * `make install`
+    * ```lua
+      make install
+      ```
  3. Clean local Objects
-    * `make clean`
+    * ```lua
+      make clean
+      ```
  4. Remove the downloaded code..
     * Not yet implemented..
  5. Remove lnewt
