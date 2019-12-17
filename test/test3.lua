@@ -1,4 +1,4 @@
-#!/usr/bin/env lua53
+#!/usr/bin/env lua
 
 local n = require('newt')
 
