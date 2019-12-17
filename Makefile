@@ -11,7 +11,7 @@ NAME		:= lnewt
 MAJOR		:= 0
 MINOR		:= 52
 FIX		:= 19
-VERSION		:= $(MAJOR).$(MINOR).$(FIX)
+VERSION		:= $(MAJOR).$(MINOR)
 
 
 ifeq ($(MAKECMDGOALS), all)
