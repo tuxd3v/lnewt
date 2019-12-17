@@ -17,13 +17,46 @@ It has not yet been tested, but will in Devuan..
 * improve the Lua api
 * add documentation with [LDoc][LDoc]
 
-Dependencies:
-----
-liblua5.3-dev libnewt-dev
+### Debian/Ubuntu
 
-```lua
-apt-get install liblua5.3-dev libnewt-dev
-```
+###### 1. Install Dependencies.
+ * Install Automatically( method A.1,A.2 in 'Install' section bellow )
+   ```lua
+   apt-get install lua5.3 lua5.3-dev libnewt-dev gcc make
+   update-alternatives --install /usr/bin/lua lua /usr/bin/lua5.3 1
+   update-alternatives --install /usr/bin/luac luac /usr/bin/luac5.3 1
+   apt-get install luarocks
+   ```
+ * Install Manually( method B.1,B.2, in 'Install' section bellow )
+   ```lua
+   apt-get install lua5.3 lua5.3-dev libnewt-dev gcc make
+   
+   Nota:
+   You can also add git, to download the code..
+   ```
+
+### Install or Remove
+----
+Several independent Options: Master, Release and Manual.
+
+##### A. Using Luarocks 
+ 1. Install from master( last code, but more prone to errors.. )
+    * `luarocks build  https://raw.githubusercontent.com/tuxd3v/ats/master/ats-master-0.rockspec`
+ 3. Install by release, check in Releases tab( ie: v0.2.0 ):
+    * `luarocks build  https://raw.githubusercontent.com/tuxd3v/ats/master/ats-0.2-0.rockspec`
+ 3. Remove using LuaRocks
+    * `luarocks remove ats`
+
+##### B. Compile/Install/Remove manually, using make ( need to download first the code ie: with git, by browser).
+ 1. Compile
+    *  `make`
+ 2. Install
+    * `make install`
+ 3. Remove the downloaded code..
+    * `make purge`
+ 4. Remove ats
+    * `make remove`
+
 
 [newt]: https://en.wikipedia.org/wiki/Newt_(programming_library)
 [luanewt]: https://github.com/SnarkyClark/luanewt
