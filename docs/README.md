@@ -17,7 +17,7 @@ It has not yet been tested, but will in Devuan..
 * improve the Lua api
 * add documentation with [LDoc][LDoc]
 
-### Debian/Ubuntu
+### Devuan/Ubuntu
 
 ###### 1. Install Dependencies.
  * Install Automatically( method A.1,A.2 in 'Install' section bellow )
