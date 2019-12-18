@@ -904,20 +904,20 @@ static int L_WinMessage( lua_State *L ) {
 	buttonText	= luaL_checkstring( L, 2 );
 	text		= luaL_checkstring( L, 3 );
 	
-	with		= strlen( title )
+	with		= strlen( title );
 	if( strlen( buttonText ) > with )
-		with = strlen( buttonText )
+		with = strlen( buttonText );
 	else if( strlen( text ) > with )
-		with = strlen( text )
+		with = strlen( text );
 	
 	height = ( with%20 != 0 ) ? ( with + 1 ) : with;
 	
-	lua_pushlstring( L, title, size )
-	lua_pushlstring( L, buttonText, size )
-	lua_pushlstring( L, text, size )
+	lua_pushlstring( L, title, size );
+	lua_pushlstring( L, buttonText, size );
+	lua_pushlstring( L, text, size );
 	
 	/* some action needed.. */
-	L_CenteredWindow( L, with, height, title )
+	L_CenteredWindow( L, with, height, title );
 	return 0;
 }
 
