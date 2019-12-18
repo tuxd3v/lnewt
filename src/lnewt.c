@@ -912,9 +912,8 @@ static int L_WinMessage( lua_State *L ) {
 	}else if( strlen( text ) > with ){
 		with = strlen( text );
 	}
-	
+
 	height = ( with%cols != 0 ) ? ( ( with / cols ) + 1 ) : ( with / cols );
-	
 
 	lua_pushinteger( L, with );
 	lua_pushinteger( L, height );
@@ -922,10 +921,9 @@ static int L_WinMessage( lua_State *L ) {
 	/* some action needed.. with result?? */
 	L_CenteredWindow( L );
 	if( lua_isboolean( L, 1 ) ){
-		lua_pushnil( L );
-		
-		result	= newtLabel( 0, 0, text );
+		result	= newtLabel( width, height, text );
 		lua_pushcomponent( L, result, TYPE_LABEL );
+		lua_pushnil( L );
 		return 5;
 	}
 	return 3;
