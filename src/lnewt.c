@@ -892,7 +892,8 @@ static int L_Text( lua_State *L ) {
  */
 static int L_WinMessage( lua_State *L ) {
 	char * title, buttonText, text;
-	int size_t with,height;
+	unsigned int with;
+	unsigned int height;
 
 	newtComponent result;
 
