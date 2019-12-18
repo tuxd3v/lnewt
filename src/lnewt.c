@@ -887,9 +887,36 @@ static int L_Text( lua_State *L ) {
 	lua_pushtag( L, com->p );
 	return 1;
 }
+/* automatically centered and shrink wrapped
+ * void newtWinMessage(char * title, char * buttonText, char * text, ...);
+ */
+static int L_WinMessage( lua_State *L ) {
+	char * title, buttonText, text;
+	int size_t with,height;
+	int size_t with,height;
 
-static int L_WinMessage(lua_State *L) {
-  return 0;
+	newtComponent result;
+
+	/* Check if they are Strings if yes, return them..*/
+	title		= luaL_checkstring( L, 1 );
+	buttonText	= luaL_checkstring( L, 2 );
+	text		= luaL_checkstring( L, 3 );
+	
+	with		= strlen( title )
+	if( strlen( buttonText ) > with )
+		with = strlen( buttonText )
+	else if( strlen( text ) > with )
+		with = strlen( text )
+	
+	height = ( with%20 != 0 ) ? ( with +1 ) : with;
+	
+	lua_pushlstring( L, title, size )
+	lua_pushlstring( L, buttonText, size )
+	lua_pushlstring( L, text, size )
+	
+	/* some action needed.. */
+	L_CenteredWindow( L, with, height, title )
+	return 0;
 }
 
 static int L_SetSuspendCallback(lua_State *L) {
