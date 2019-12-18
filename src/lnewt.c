@@ -894,7 +894,7 @@ static int L_WinMessage( lua_State *L ) {
 	const char * title;
 	const char * buttonText;
 	const char * text;
-	int result;
+	/*int result;*/
 	unsigned int with;
 	unsigned int height	= 1;
 	unsigned int cols	= 20;
