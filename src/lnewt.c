@@ -903,7 +903,8 @@ static int L_WinMessage( lua_State *L ) {
 	title		= luaL_checkstring( L, 1 );
 	buttonText	= luaL_checkstring( L, 2 );
 	text		= luaL_checkstring( L, 3 );
-	
+	lua_pop( L, 3 );
+
 	with		= strlen( title );
 	if( strlen( buttonText ) > with ){
 		with = strlen( buttonText );
@@ -917,7 +918,6 @@ static int L_WinMessage( lua_State *L ) {
 	lua_pushinteger( L, with );
 	lua_pushlstring( L, title, strlen( title ) );
 	lua_pushinteger( L, height );
-	
 	/* some action needed.. with result?? */
 	L_CenteredWindow( L );
 	if( lua_isboolean( L, 1 ) ){
