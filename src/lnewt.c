@@ -912,9 +912,9 @@ static int L_WinMessage( lua_State *L ) {
 	
 	height = ( with%cols != 0 ) ? ( ( with / cols ) + 1 ) : ( with / cols );
 	
-	lua_pushinteger( L, with );
-	lua_pushinteger( L, height );
 	lua_pushlstring( L, title, strlen( title ) );
+	lua_pushinteger( L, height );
+	lua_pushinteger( L, with );
 	
 	/* some action needed.. */
 	L_CenteredWindow( L );
