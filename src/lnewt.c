@@ -908,7 +908,7 @@ static int L_WinMessage( lua_State *L ) {
 	else if( strlen( text ) > with )
 		with = strlen( text )
 	
-	height = ( with%20 != 0 ) ? ( with +1 ) : with;
+	height = ( with%20 != 0 ) ? ( with + 1 ) : with;
 	
 	lua_pushlstring( L, title, size )
 	lua_pushlstring( L, buttonText, size )
