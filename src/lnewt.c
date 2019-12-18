@@ -896,6 +896,7 @@ static int L_WinMessage( lua_State *L ) {
 	const char * text;
 	unsigned int with;
 	unsigned int height;
+	unsigned int cols	= 20;
 
 	/* Check if they are Strings if yes, return them..*/
 	title		= luaL_checkstring( L, 1 );
@@ -903,12 +904,13 @@ static int L_WinMessage( lua_State *L ) {
 	text		= luaL_checkstring( L, 3 );
 	
 	with		= strlen( title );
-	if( strlen( buttonText ) > with )
+	if( strlen( buttonText ) > with ){
 		with = strlen( buttonText );
-	else if( strlen( text ) > with )
+	}else if( strlen( text ) > with ){
 		with = strlen( text );
+	}
 	
-	height = ( with%20 != 0 ) ? ( with + 1 ) : with;
+	height = ( with%cols != 0 ) ? ( ( with / cols ) + 1 ) : ( with / cols );
 	
 	lua_pushlstring( L, title, strlen( title ) );
 	lua_pushlstring( L, buttonText, strlen( buttonText) );
