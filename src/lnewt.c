@@ -915,7 +915,7 @@ static int L_WinMessage( lua_State *L ) {
 	lua_pushlstring( L, text, strlen( text ) );
 	
 	/* some action needed.. */
-	L_CenteredWindow( L, with, height, title );
+	L_CenteredWindow( L );
 	return 0;
 }
 
