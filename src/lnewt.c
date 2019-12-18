@@ -891,7 +891,7 @@ static int L_Text( lua_State *L ) {
  * void newtWinMessage(char * title, char * buttonText, char * text, ...);
  */
 static int L_WinMessage( lua_State *L ) {
-	char * title, buttonText, text;
+	const char * title, buttonText, text;
 	unsigned int with;
 	unsigned int height;
 
