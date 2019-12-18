@@ -913,7 +913,7 @@ static int L_WinMessage( lua_State *L ) {
 	height = ( with%20 != 0 ) ? ( with + 1 ) : with;
 	
 	lua_pushlstring( L, title, strlen( title ) );
-	lua_pushlstring( L, buttonText, strlen( buttonText );
+	lua_pushlstring( L, buttonText, strlen( buttonText) );
 	lua_pushlstring( L, text, strlen( text ) );
 	
 	/* some action needed.. */
