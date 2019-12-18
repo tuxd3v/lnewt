@@ -894,6 +894,7 @@ static int L_WinMessage( lua_State *L ) {
 	const char * title;
 	const char * buttonText;
 	const char * text;
+	int result;
 	unsigned int with;
 	unsigned int height	= 1;
 	unsigned int cols	= 20;
@@ -917,8 +918,10 @@ static int L_WinMessage( lua_State *L ) {
 	lua_pushinteger( L, height );
 	lua_pushlstring( L, title, strlen( title ) );
 	
-	/* some action needed.. */
-	L_CenteredWindow( L );
+	/* some action needed.. with result?? */
+	result = L_CenteredWindow( L )
+	lua_pushnil( L );
+
 	return 0;
 }
 
