@@ -898,6 +898,7 @@ static int L_WinMessage( lua_State *L ) {
 	unsigned int with;
 	unsigned int height	= 1;
 	unsigned int cols	= 20;
+	newtComponent result;
 
 	/* Check if they are Strings if yes, return them..*/
 	title		= luaL_checkstring( L, 1 );
@@ -922,7 +923,10 @@ static int L_WinMessage( lua_State *L ) {
 	L_CenteredWindow( L );
 	if( lua_isboolean( L, 1 ) ){
 		lua_pushnil( L );
-		return 4;
+		
+		result	= newtLabel( 0, 0, text );
+		lua_pushcomponent( L, result, TYPE_LABEL );
+		return 5;
 	}
 	return 3;
 }
