@@ -897,8 +897,6 @@ static int L_WinMessage( lua_State *L ) {
 	unsigned int with;
 	unsigned int height;
 
-	newtComponent result;
-
 	/* Check if they are Strings if yes, return them..*/
 	title		= luaL_checkstring( L, 1 );
 	buttonText	= luaL_checkstring( L, 2 );
