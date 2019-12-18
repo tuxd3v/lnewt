@@ -895,7 +895,7 @@ static int L_WinMessage( lua_State *L ) {
 	const char * buttonText;
 	const char * text;
 	/*int result;*/
-	unsigned int with;
+	unsigned int width;
 	unsigned int height	= 1;
 	unsigned int cols	= 20;
 	newtComponent result;
@@ -906,16 +906,16 @@ static int L_WinMessage( lua_State *L ) {
 	text		= luaL_checkstring( L, 3 );
 	lua_pop( L, 3 );
 
-	with		= strlen( title );
-	if( strlen( buttonText ) > with ){
-		with = strlen( buttonText );
-	}else if( strlen( text ) > with ){
-		with = strlen( text );
+	width		= strlen( title );
+	if( strlen( buttonText ) > width ){
+		width = strlen( buttonText );
+	}else if( strlen( text ) > width ){
+		width = strlen( text );
 	}
 
-	height = ( with%cols != 0 ) ? ( ( with / cols ) + 1 ) : ( with / cols );
+	height = ( width%cols != 0 ) ? ( ( width / cols ) + 1 ) : ( width / cols );
 
-	lua_pushinteger( L, with );
+	lua_pushinteger( L, width );
 	lua_pushinteger( L, height );
 	lua_pushlstring( L, title, strlen( title ) );
 	/* some action needed.. with result?? */
