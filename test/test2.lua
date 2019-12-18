@@ -1,6 +1,6 @@
 #!/usr/bin/env lua
 
-local n = require('newt')
+local n = require('lnewt')
 
 n.Init()
 n.Cls()
