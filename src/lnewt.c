@@ -920,9 +920,10 @@ static int L_WinMessage( lua_State *L ) {
 	
 	/* some action needed.. with result?? */
 	L_CenteredWindow( L );
-	if( lua_isboolean( L, 1 ) )
+	if( lua_isboolean( L, 1 ) ){
 		lua_pushnil( L );
-
+		return 1;
+	}
 	return 0;
 }
 
