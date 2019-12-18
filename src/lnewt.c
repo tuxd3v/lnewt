@@ -922,9 +922,9 @@ static int L_WinMessage( lua_State *L ) {
 	L_CenteredWindow( L );
 	if( lua_isboolean( L, 1 ) ){
 		lua_pushnil( L );
-		return 1;
+		return 4;
 	}
-	return 0;
+	return 3;
 }
 
 static int L_SetSuspendCallback(lua_State *L) {
