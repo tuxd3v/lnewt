@@ -891,43 +891,21 @@ static int L_Text( lua_State *L ) {
  * void newtWinMessage(char * title, char * buttonText, char * text, ...);
  */
 static int L_WinMessage( lua_State *L ) {
-	char * title;
+	/*char * title;
 	char * buttonText;
 	char * text;
-
-	/*int result;*/
-	/*unsigned int width;
-	unsigned int height	= 1;
-	unsigned int cols	= 20;
-	*/
-	unsigned int result;
+*/
 	/* Check if they are Strings if yes, return them..*/
-
+/*
 	title		= (char*)luaL_checkstring( L, 1 );
 	buttonText	= (char*)luaL_checkstring( L, 2 );
 	text		= (char*)luaL_checkstring( L, 3 );
 	lua_pop( L, 3 );
 
-/*
-	width		= strlen( title );
-	if( strlen( buttonText ) > width )
-		width = strlen( buttonText );
-	if( strlen( text ) > width )
-		width = strlen( text );
-
-	height = ( width%cols != 0 ) ? ( ( width / cols ) + 1 ) : ( width / cols );
 */
-	newtWinMessage( title, buttonText, text );
-	result = 0;
-	/*result = newtCenteredWindow( width, height, title );*/
-	if( ! result  ){
-		/* add form, with a label inside and a button at the end..*/
+	newtWinMessage( (char*)luaL_checkstring( L, 1 ), (char*)luaL_checkstring( L, 2 ), (char*)luaL_checkstring( L, 3 ) );
+	lua_pushnil( L );
 
-		lua_pushnil( L );
-		return 1;
-	}else{
-		lua_pushboolean( L, result );
-	}
 	return 1;
 }
 
