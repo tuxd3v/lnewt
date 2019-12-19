@@ -891,21 +891,24 @@ static int L_Text( lua_State *L ) {
  * void newtWinMessage(char * title, char * buttonText, char * text, ...);
  */
 static int L_WinMessage( lua_State *L ) {
-	const char * title;
+	/*const char * title;
 	const char * buttonText;
 	const char * text;
+	*/
 	/*int result;*/
-	unsigned int width;
+	/*unsigned int width;
 	unsigned int height	= 1;
 	unsigned int cols	= 20;
+	*/
 	unsigned int result;
-
 	/* Check if they are Strings if yes, return them..*/
+	/*
 	title		= luaL_checkstring( L, 1 );
 	buttonText	= luaL_checkstring( L, 2 );
 	text		= luaL_checkstring( L, 3 );
 	lua_pop( L, 3 );
-
+	*/
+/*
 	width		= strlen( title );
 	if( strlen( buttonText ) > width )
 		width = strlen( buttonText );
@@ -913,8 +916,8 @@ static int L_WinMessage( lua_State *L ) {
 		width = strlen( text );
 
 	height = ( width%cols != 0 ) ? ( ( width / cols ) + 1 ) : ( width / cols );
-
-	newtWinMessage( title, buttonText, text );
+*/
+	newtWinMessage( luaL_checkstring( L, 1 ), luaL_checkstring( L, 2 ), luaL_checkstring( L, 3 ) );
 	result = 0;
 	/*result = newtCenteredWindow( width, height, title );*/
 	if( ! result  ){
