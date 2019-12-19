@@ -894,6 +894,7 @@ static int L_WinMessage( lua_State *L ) {
 	char * title		= NULL;
 	char * buttonText	= NULL;
 	char * text		= NULL;
+	/*TODO: check if more arguments come to the function..*/
 	/* Check if they are Strings if yes, return them..*/
 	title		= ( char* )luaL_checkstring( L, 1 );
 	buttonText	= ( char* )luaL_checkstring( L, 2 );
