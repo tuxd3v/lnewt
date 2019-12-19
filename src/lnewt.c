@@ -903,9 +903,9 @@ static int L_WinMessage( lua_State *L ) {
 	unsigned int result;
 	/* Check if they are Strings if yes, return them..*/
 
-	title		= luaL_checkstring( L, 1 );
-	buttonText	= luaL_checkstring( L, 2 );
-	text		= luaL_checkstring( L, 3 );
+	title		= (char*)luaL_checkstring( L, 1 );
+	buttonText	= (char*)luaL_checkstring( L, 2 );
+	text		= (char*)luaL_checkstring( L, 3 );
 	lua_pop( L, 3 );
 
 /*
