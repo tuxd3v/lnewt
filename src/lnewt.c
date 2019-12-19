@@ -907,41 +907,37 @@ static int L_WinMessage( lua_State *L ) {
 	lua_pop( L, 3 );
 
 	width		= strlen( title );
-	if( strlen( buttonText ) > width ){
+	if( strlen( buttonText ) > width )
 		width = strlen( buttonText );
-	}else if( strlen( text ) > width ){
+	if( strlen( text ) > width )
 		width = strlen( text );
-	}
 
 	height = ( width%cols != 0 ) ? ( ( width / cols ) + 1 ) : ( width / cols );
 
-	/* lua_pushinteger( L, width ); */
-	/* lua_pushinteger( L, height ); */
-	/* lua_pushlstring( L, title, strlen( title ) ); */
-	/* some action needed.. with result?? */
 	result = newtCenteredWindow( width, height, title );
-	lua_pushboolean( L, result );
-	/*L_CenteredWindow( L );*/
-	if( !result ){
-		/* add form, with a label inside and a button at the end..*/
+	if( ! result  ){
 		lua_pushnil( L );
-		return 5;
+		/* add form, with a label inside and a button at the end..*/
+
+		return 1;
+	}else{
+		lua_pushboolean( L, result );
 	}
-	return 3;
+	return 0;
 }
 
-static int L_SetSuspendCallback(lua_State *L) {
+static int L_SetSuspendCallback( lua_State *L ) {
   return 0;
 }
 
-static int L_ReflowText(lua_State *L) {
+static int L_ReflowText( lua_State *L ) {
   return 0;
 }
 
-static int L_TextboxReflowed(lua_State *L) {
+static int L_TextboxReflowed( lua_State *L ) {
   return 0;
 }
-static int L_AddCallback(lua_State *L) {
+static int L_AddCallback( lua_State *L ) {
   return 0;
 }
 
