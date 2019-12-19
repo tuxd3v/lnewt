@@ -914,7 +914,9 @@ static int L_WinMessage( lua_State *L ) {
 
 	height = ( width%cols != 0 ) ? ( ( width / cols ) + 1 ) : ( width / cols );
 
-	result = newtCenteredWindow( width, height, title );
+	newtWinMessage( title, buttonText, text );
+	result = 0;
+	/*result = newtCenteredWindow( width, height, title );*/
 	if( ! result  ){
 		/* add form, with a label inside and a button at the end..*/
 
