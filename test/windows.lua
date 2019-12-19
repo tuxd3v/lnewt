@@ -31,8 +31,8 @@ local function main()
 	newt.PopWindow()
 	newt.WinMessage("WinMessage()","OKay","This is a message Window only..!!")
 	newt.Refresh()
-	newt.WaitForKey()
 
+	newt.WaitForKey()
 	newt.Finished()
 end
 
