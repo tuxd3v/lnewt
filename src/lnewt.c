@@ -267,7 +267,7 @@ static int L_OpenWindow( lua_State *L ) {
 	else
 		title = luaL_checkstring( L, 5 );
 
-	int result = newtOpenWindow( left, top, width, height, title );
+	int result = newtOpenWindow( left, top, width, height, title, "test this?" );
 	lua_pushboolean( L, result );
 	return 1;
 }
