@@ -267,7 +267,7 @@ static int L_OpenWindow( lua_State *L ) {
 	else
 		title = luaL_checkstring( L, 5 );
 
-	int result = newtOpenWindow( left, top, width, height, title, "test this?" );
+	int result = newtOpenWindow( left, top, width, height, title );
 	lua_pushboolean( L, result );
 	return 1;
 }
@@ -285,7 +285,7 @@ static int L_CenteredWindow( lua_State *L ) {
 	else
 		title = luaL_checkstring( L, 3 );
 
-	result = newtCenteredWindow( width, height, title );
+	result = newtCenteredWindow( width, height, title , "test this?" );
 	lua_pushboolean( L, result );
 	return 1;
 }
