@@ -915,12 +915,15 @@ static int L_WinMessage( lua_State *L ) {
 
 	height = ( width%cols != 0 ) ? ( ( width / cols ) + 1 ) : ( width / cols );
 
-	lua_pushinteger( L, width );
-	lua_pushinteger( L, height );
-	lua_pushlstring( L, title, strlen( title ) );
+	/* lua_pushinteger( L, width ); */
+	/* lua_pushinteger( L, height ); */
+	/* lua_pushlstring( L, title, strlen( title ) ); */
 	/* some action needed.. with result?? */
-	L_CenteredWindow( L );
-	if( lua_isboolean( L, 1 ) ){
+	result = newtCenteredWindow( width, height, title );
+	lua_pushboolean( L, result );
+	/*L_CenteredWindow( L );*/
+	if( result ){
+		L_Form()
 		result	= newtLabel( width, height, text );
 		lua_pushcomponent( L, result, TYPE_LABEL );
 		lua_pushnil( L );
