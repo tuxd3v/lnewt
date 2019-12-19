@@ -916,14 +916,14 @@ static int L_WinMessage( lua_State *L ) {
 
 	result = newtCenteredWindow( width, height, title );
 	if( ! result  ){
-		lua_pushnil( L );
 		/* add form, with a label inside and a button at the end..*/
 
+		lua_pushnil( L );
 		return 1;
 	}else{
 		lua_pushboolean( L, result );
 	}
-	return 0;
+	return 1;
 }
 
 static int L_SetSuspendCallback( lua_State *L ) {
