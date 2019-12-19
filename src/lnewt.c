@@ -891,19 +891,16 @@ static int L_Text( lua_State *L ) {
  * void newtWinMessage(char * title, char * buttonText, char * text, ...);
  */
 static int L_WinMessage( lua_State *L ) {
-	/*char * title;
-	char * buttonText;
-	char * text;
-*/
+	char * title		= NULL;
+	char * buttonText	= NULL;
+	char * text		= NULL;
 	/* Check if they are Strings if yes, return them..*/
-/*
-	title		= (char*)luaL_checkstring( L, 1 );
-	buttonText	= (char*)luaL_checkstring( L, 2 );
-	text		= (char*)luaL_checkstring( L, 3 );
+	title		= ( char* )luaL_checkstring( L, 1 );
+	buttonText	= ( char* )luaL_checkstring( L, 2 );
+	text		= ( char* )luaL_checkstring( L, 3 );
 	lua_pop( L, 3 );
 
-*/
-	newtWinMessage( (char*)luaL_checkstring( L, 1 ), (char*)luaL_checkstring( L, 2 ), (char*)luaL_checkstring( L, 3 ) );
+	newtWinMessage( title, buttonText, text );
 	lua_pushnil( L );
 
 	return 1;
