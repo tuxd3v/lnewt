@@ -923,9 +923,7 @@ static int L_WinMessage( lua_State *L ) {
 	lua_pushboolean( L, result );
 	/*L_CenteredWindow( L );*/
 	if( result ){
-		L_Form()
-		result	= newtLabel( width, height, text );
-		lua_pushcomponent( L, result, TYPE_LABEL );
+		/* add form, with a label inside and a button at the end..*/
 		lua_pushnil( L );
 		return 5;
 	}
