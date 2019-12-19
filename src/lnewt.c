@@ -898,7 +898,7 @@ static int L_WinMessage( lua_State *L ) {
 	unsigned int width;
 	unsigned int height	= 1;
 	unsigned int cols	= 20;
-	newtComponent result;
+	unsigned int result;
 
 	/* Check if they are Strings if yes, return them..*/
 	title		= luaL_checkstring( L, 1 );
@@ -922,7 +922,7 @@ static int L_WinMessage( lua_State *L ) {
 	result = newtCenteredWindow( width, height, title );
 	lua_pushboolean( L, result );
 	/*L_CenteredWindow( L );*/
-	if( result ){
+	if( !result ){
 		/* add form, with a label inside and a button at the end..*/
 		lua_pushnil( L );
 		return 5;
