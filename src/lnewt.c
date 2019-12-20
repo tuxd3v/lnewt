@@ -7,7 +7,7 @@
  * 
  * 
  */
-#define MYNAME "NEWT"
+#define MYNAME "LNEWT"
 /**
  * @brief 
  * 
@@ -74,7 +74,6 @@ void *luaL_checkpointer( lua_State* L, int i ) {
  * @brief check and return component object parameter
  * @param index int i
  * @returns Component at index i
- * 
  * 
  */
 component luaL_checkcomponent( lua_State* L, int i ) {
