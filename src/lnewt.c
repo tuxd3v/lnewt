@@ -88,13 +88,10 @@ component luaL_checkcomponent( lua_State* L, int i ) {
 	  return lua_toncom( L, i );
 }
 
-/* push a component object on the stack */
-/**
- * @brief 
- * @param L 
- * @param com 
- * @param type 
- * 
+/***
+ * @brief push a component object on the stack
+ * @param newtComponent com
+ * @param int type
  * 
  */
 void lua_pushcomponent( lua_State *L, newtComponent com, int type ) {
@@ -108,13 +105,10 @@ void lua_pushcomponent( lua_State *L, newtComponent com, int type ) {
 	}
 }
 
-/* register component tag */
-/**
- * @brief 
- * @param L 
- * @param com 
- * @param tag 
- * 
+/***
+ * @brief register component tag
+ * @param newtComponent com
+ * @param const char *tag
  * 
  */
 void lua_regtag( lua_State *L, newtComponent com, const char *tag ) {
@@ -128,12 +122,10 @@ void lua_regtag( lua_State *L, newtComponent com, const char *tag ) {
 	lua_settable( L, LUA_REGISTRYINDEX );
 }
 
-/* push component tag onto Lua stack */
-/**
- * @brief 
- * @param L 
+/***
+ * @brief push component tag onto Lua stack
+ * @param newtComponent com
  * @param com 
- * 
  * 
  */
 void lua_pushtag( lua_State *L, newtComponent com ) {
@@ -143,10 +135,12 @@ void lua_pushtag( lua_State *L, newtComponent com ) {
 	lua_gettable( L, LUA_REGISTRYINDEX );
 }
 
-
-/** module registration **/
-
-/* base functions */
+/***
+ * @brief module registration methods
+ * @brief Array of Functions
+ * @brief base functions
+ * 
+ */
 static const luaL_Reg R_newt_functions[] = {
 
 	{ "Init", L_Init				},
@@ -202,7 +196,11 @@ static const luaL_Reg R_newt_functions[] = {
 	{ NULL, NULL					}
 };
 
-/* Newt.Component methods */
+/***
+ * @brief Newt.Component methods
+ * @brief Array of Functions to assist Components..
+ * 
+ */
 static const luaL_Reg R_comp_methods[] = {
 
 	{ "AddCallback", L_AddCallback		},
@@ -228,11 +226,10 @@ static const luaL_Reg R_comp_methods[] = {
 };
 
 
-/**
- * @brief 
+/***
+ * @brief Registers Lua Library Functions..
  * @param L 
  * @returns 
- * 
  * 
  */
 LUALIB_API int luaopen_lnewt( lua_State *L ) {
@@ -249,14 +246,6 @@ LUALIB_API int luaopen_lnewt( lua_State *L ) {
 	lua_pushliteral( L, MYVERSION );
 	lua_setfield( L, -2, "version" );     /** version */
 
-	/**
-	 * @brief 
-	 * @param name 
-	 * @param value 
-	 * @returns 
-	 * 
-	 * 
-	 */
 	#define luaL_push_const( name, value ) \
 		lua_pushinteger( L, value ); lua_setfield( L, -2, name )
 
@@ -317,14 +306,12 @@ LUALIB_API int luaopen_lnewt( lua_State *L ) {
 }
 
 
-/** root functions **/
+/* root functions */
 
-/* bool Init() */
-/**
- * @brief 
+/***
+ * @brief Init()
  * @param L 
- * @returns 
- * 
+ * @returns boolean
  * 
  */
 static int L_Init( lua_State *L ) {
@@ -334,12 +321,10 @@ static int L_Init( lua_State *L ) {
 	return 1;
 }
 
-/* Cls() */
-/**
- * @brief 
+/***
+ * @brief Cls()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Cls( lua_State *L ) {
@@ -347,12 +332,10 @@ static int L_Cls( lua_State *L ) {
 	return 0;
 }
 
-/* WaitForKey() */
-/**
- * @brief 
+/***
+ * @brief WaitForKey()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_WaitForKey( lua_State *L ) {
@@ -360,12 +343,10 @@ static int L_WaitForKey( lua_State *L ) {
 	return 0;
 }
 
-/* ClearKeyBuffer() */
-/**
- * @brief 
+/***
+ * @brief ClearKeyBuffer()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_ClearKeyBuffer( lua_State *L ) {
@@ -373,12 +354,10 @@ static int L_ClearKeyBuffer( lua_State *L ) {
 	return 0;
 }
 
-/* DrawRootText(left, top, text) */
-/**
- * @brief 
+/***
+ * @brief DrawRootText(left, top, text)
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_DrawRootText( lua_State *L ) {
@@ -389,12 +368,10 @@ static int L_DrawRootText( lua_State *L ) {
 	return 0;
 }
 
-/* newtOpenWindow(left, top, width, height, [title]) */
-/**
- * @brief 
+/***
+ * @brief newtOpenWindow(left, top, width, height, [title])
  * @param L 
- * @returns 
- * 
+ * @returns boolean
  * 
  */
 static int L_OpenWindow( lua_State *L ) {
@@ -413,12 +390,10 @@ static int L_OpenWindow( lua_State *L ) {
 	return 1;
 }
 
-/* bool newtCenteredWindow(width, height, [title]) */
-/**
- * @brief 
+/***
+ * @brief newtCenteredWindow(width, height, [title])
  * @param L 
- * @returns 
- * 
+ * @returns boolean
  * 
  */
 static int L_CenteredWindow( lua_State *L ) {
@@ -438,12 +413,10 @@ static int L_CenteredWindow( lua_State *L ) {
 	return 1;
 }
 
-/* PopWindow() */
-/**
- * @brief 
+/***
+ * @brief PopWindow()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_PopWindow( lua_State *L ) {
@@ -451,12 +424,10 @@ static int L_PopWindow( lua_State *L ) {
 	return 0;
 }
 
-/* PushHelpLine([text]) */
-/**
- * @brief 
+/***
+ * @brief PushHelpLine([text])
  * @param L 
- * @returns 
- * 
+ * @returns PushHelpLine( text )
  * 
  */
 static int L_PushHelpLine( lua_State *L ) {
@@ -471,12 +442,10 @@ static int L_PushHelpLine( lua_State *L ) {
 	return 0;
 }
 
-/* PopHelpLine() */
-/**
- * @brief 
+/***
+ * @brief PopHelpLine()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_PopHelpLine( lua_State *L ) {
@@ -484,12 +453,10 @@ static int L_PopHelpLine( lua_State *L ) {
 	return 0;
 }
 
-/* Refresh() */
-/**
- * @brief 
+/***
+ * @brief Refresh()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Refresh( lua_State *L ) {
@@ -497,12 +464,10 @@ static int L_Refresh( lua_State *L ) {
 	return 0;
 }
 
-/* bool Finished() */
-/**
- * @brief 
+/***
+ * @brief Finished()
  * @param L 
- * @returns 
- * 
+ * @returns boolean
  * 
  */
 static int L_Finished( lua_State *L ) {
@@ -512,12 +477,10 @@ static int L_Finished( lua_State *L ) {
 	return 1;
 }
 
-/* Suspend() */
-/**
- * @brief 
+/***
+ * @brief Suspend()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Suspend( lua_State *L ) {
@@ -525,12 +488,11 @@ static int L_Suspend( lua_State *L ) {
 	return 0;
 }
 
-/* Resume */
-/**
- * @brief 
+
+/***
+ * @brief Resume
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Resume( lua_State *L ) {
@@ -538,12 +500,10 @@ static int L_Resume( lua_State *L ) {
 	return 0;
 }
 
-/* Bell() */
-/**
- * @brief 
+/***
+ * @brief Bell()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Bell( lua_State *L ) {
@@ -551,12 +511,10 @@ static int L_Bell( lua_State *L ) {
 	return 0;
 }
 
-/* CursorOff() */
-/**
- * @brief 
+/***
+ * @brief CursorOff()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_CursorOff( lua_State *L ) {
@@ -564,12 +522,10 @@ static int L_CursorOff( lua_State *L ) {
 	return 0;
 }
 
-/* CursorOn() */
-/**
- * @brief 
+/***
+ * @brief CursorOn()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_CursorOn( lua_State *L ) {
@@ -577,12 +533,10 @@ static int L_CursorOn( lua_State *L ) {
 	return 0;
 }
 
-/* Delay() */
-/**
- * @brief 
+/***
+ * @brief Delay()
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Delay( lua_State *L ) {
@@ -592,12 +546,10 @@ static int L_Delay( lua_State *L ) {
 	return 0;
 }
 
-/* cols, rows = GetScreenSize() */
-/**
- * @brief 
+/***
+ * @brief cols, rows = GetScreenSize()
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushinteger( L, cols ) and lua_pushinteger( L, rows )
  * 
  */
 static int L_GetScreenSize( lua_State *L ) {
@@ -610,12 +562,11 @@ static int L_GetScreenSize( lua_State *L ) {
 
 /* widget functions */
 
-/* com = Button(left, top, text) */
-/**
- * @brief 
+/***
+ * @brief widget function
+ * @brief com = Button(left, top, text)
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushcomponent( L, result, TYPE_BUTTON )
  * 
  */
 static int L_Button( lua_State *L ) {
@@ -633,12 +584,10 @@ static int L_Button( lua_State *L ) {
 	return 1;
 }
 
-/* com = CompactButton(left, top, text) */
-/**
- * @brief 
+/***
+ * @brief com = CompactButton(left, top, text)
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_CompactButton(lua_State *L) {
@@ -656,12 +605,10 @@ static int L_CompactButton(lua_State *L) {
 	return 1;
 }
 
-/* com = Checkbox(left, top, text, [checked]) */
-/**
- * @brief 
+/***
+ * @brief com = Checkbox(left, top, text, [checked])
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_Checkbox( lua_State *L ) {
@@ -687,12 +634,10 @@ static int L_Checkbox( lua_State *L ) {
 	return 1;
 }
 
-/* com = Entry(left, top, value, width, [flags])*/
-/**
- * @brief 
+/***
+ * @brief com = Entry(left, top, value, width, [flags])
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushcomponent( L, result, TYPE_ENTRY )
  * 
  */
 static int L_Entry( lua_State *L ) {
@@ -718,12 +663,10 @@ static int L_Entry( lua_State *L ) {
 	return 1;
 }
 
-/* com = Form([vertBar], [help], [flags]) */
-/**
- * @brief 
+/***
+ * @brief com = Form([vertBar], [help], [flags])
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushcomponent( L, result, TYPE_FORM )
  * 
  */
 static int L_Form( lua_State *L ) {
@@ -750,12 +693,10 @@ static int L_Form( lua_State *L ) {
 	return 1;
 }
 
-/* com = Label(left, top, text) */
-/**
- * @brief 
+/***
+ * @brief com = Label(left, top, text)
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushcomponent( L, result, TYPE_LABEL )
  * 
  */
 static int L_Label( lua_State *L ) {
@@ -772,12 +713,10 @@ static int L_Label( lua_State *L ) {
 	return 1;
 }
 
-/* textbox = Textbox(left, top, width, height, [flags]) */
-/**
- * @brief 
+/***
+ * @brief textbox = Textbox(left, top, width, height, [flags])
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushcomponent( L, result, TYPE_TEXTBOX )
  * 
  */
 static int L_Textbox( lua_State *L ) {
@@ -800,12 +739,10 @@ static int L_Textbox( lua_State *L ) {
 	return 1;
 }
 
-/* list = Listbox(left, top, height, flags) */
-/**
- * @brief 
+/***
+ * @brief list = Listbox(left, top, height, flags)
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_Listbox( lua_State *L ) {
@@ -826,12 +763,10 @@ static int L_Listbox( lua_State *L ) {
 	return 1;
 }
 
-/* com = Radiobutton(left, top, text, [selected], [prev]) */
-/**
- * @brief 
+/***
+ * @brief com = Radiobutton(left, top, text, [selected], [prev])
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_Radiobutton( lua_State *L ) {
@@ -864,12 +799,10 @@ static int L_Radiobutton( lua_State *L ) {
 	return 1;
 }
 
-/* com = Scale(left, top, width, max) */
-/**
- * @brief 
+/***
+ * @brief com = Scale(left, top, width, max)
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_Scale( lua_State *L ) {
@@ -887,26 +820,21 @@ static int L_Scale( lua_State *L ) {
 	return 1;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_VerticalScrollbar( lua_State *L ) {
 	return 0;
 }
 
-
-/** Newt.Component object **/
-
-/* AddComponents(com, ...) */
-/**
- * @brief 
+/***
+ * @brief Newt.Component object
+ *  @brief AddComponents(com, ...)
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_AddComponents( lua_State *L ) {
@@ -939,13 +867,11 @@ static int L_AddComponents( lua_State *L ) {
 	return 0;
 }
 
-/* form:AddHotKey(key) */
-/* form:AddHotKey({key, ...}) */
-/**
- * @brief 
+/***
+ * @brief form:AddHotKey(key)
+ * @brief form:AddHotKey({key, ...})
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_AddHotKey( lua_State *L ) {
@@ -972,10 +898,9 @@ static int L_AddHotKey( lua_State *L ) {
 	return 0;
 }
 
-/* listbox:AppendEntry(text, [index]) */
-/* listbox:AppendEntry({text, text}, [startindex]) */
-/**
- * @brief 
+/***
+ * @brief listbox:AppendEntry(text, [index])
+ * @brief listbox:AppendEntry({text, text}, [startindex])
  * @param L 
  * @returns 
  * 
@@ -1014,9 +939,8 @@ static int L_AppendEntry( lua_State *L ) {
 	return 0;
 }
 
-/* listbox:Clear() */
-/**
- * @brief 
+/***
+ * @brief listbox:Clear()
  * @param L 
  * @returns 
  * 
@@ -1031,11 +955,10 @@ static int L_Clear( lua_State *L ) {
 	return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_Destroy( lua_State *L ) {
@@ -1047,12 +970,10 @@ static int L_Destroy( lua_State *L ) {
 	return 0;
 }
 
-/* form:Draw() */
-/**
- * @brief 
+/***
+ * @brief form:Draw()
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_Draw( lua_State *L ) {
@@ -1064,7 +985,7 @@ static int L_Draw( lua_State *L ) {
 	return 0;
 }
 
-/* 
+/*** 
  * @brief Get Curent Component, RADIOBUTTON,LISTBOX, etc
  * @brief com = radiobutton:GetCurrent()
  * @param component( L, 1 )
@@ -1091,13 +1012,11 @@ static int L_GetCurrent( lua_State *L ) {
 	return 1;
 }
 
-/* value = entry:GetValue() */
-/* value = checkbox:GetValue() */
-/**
- * @brief 
+/***
+ * @brief value = entry:GetValue()
+ * @brief value = checkbox:GetValue()
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushboolean()
  * 
  */
 static int L_GetValue( lua_State *L ) {
@@ -1122,12 +1041,10 @@ static int L_GetValue( lua_State *L ) {
 	return 1;
 }
 
-/* hex = com:ID() */
-/**
- * @brief 
+/***
+ * @brief hex = com:ID()
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_ID( lua_State *L ) {
@@ -1141,12 +1058,10 @@ static int L_ID( lua_State *L ) {
 	return 1;
 }
 
-/* reason, value = form:Run() */
-/**
- * @brief 
+/***
+ * @brief reason, value = form:Run()
  * @param L 
- * @returns 
- * 
+ * @returns lua_pushcomponent( L, result.u.co, TYPE_UNKNOWN ) or lua_pushinteger( L, result.u.key )
  * 
  */
 static int L_Run( lua_State *L ) {
@@ -1165,13 +1080,11 @@ static int L_Run( lua_State *L ) {
 	return 2;
 }
 
-/* entry:Set(value, [cursoratend]) */
-/* scale:Set(value) */
-/**
- * @brief 
+/***
+ * @brief entry:Set(value, [cursoratend])
+ * @brief scale:Set(value)
  * @param L 
- * @returns 
- * 
+ * @returns void
  * 
  */
 static int L_Set( lua_State *L ) {
@@ -1200,11 +1113,10 @@ static int L_Set( lua_State *L ) {
 	return 0;
 }
 
-/* com = com:SetType(type) */
-/**
- * @brief 
+/***
+ * @brief com = com:SetType(type)
  * @param L 
- * @returns 
+ * @returns component( L, com->p, type )
  * 
  * 
  */
@@ -1219,12 +1131,10 @@ static int L_SetType( lua_State *L ) {
 	return 1;
 }
 
-/* form:SetTimer(millisecs) */
-/**
- * @brief 
+/***
+ * @brief form:SetTimer(millisecs)
  * @param L 
- * @returns 
- * 
+ * @returns FormSetTimer( com->p, period )
  * 
  */
 static int L_SetTimer( lua_State *L ) {
@@ -1245,12 +1155,10 @@ static int L_SetTimer( lua_State *L ) {
 	return 0;
 }
 
-/* label:SetText(text) */
-/**
- * @brief 
+/***
+ * @brief label:SetText(text)
  * @param L 
- * @returns 
- * 
+ * @returns LabelSetText( com->p, text ) or TextboxSetText( com->p, text )
  * 
  */
 static int L_SetText( lua_State *L ) {
@@ -1271,9 +1179,9 @@ static int L_SetText( lua_State *L ) {
 	return 0;
 }
 
-/* com:TakesFocus(bool) */
-/**
- * @brief 
+
+/***
+ * @brief com:TakesFocus(bool)
  * @param L 
  * @returns 
  * 
@@ -1291,12 +1199,11 @@ static int L_TakesFocus( lua_State *L ) {
 	return 0;
 }
 
-/* tag = com:Text() */
-/**
- * @brief 
- * @param L 
- * @returns 
- * 
+
+/***
+ * @brief tag = com:Text()
+ * @param component( L, 1 )
+ * @returns tag
  * 
  */
 static int L_Text( lua_State *L ) {
@@ -1306,14 +1213,13 @@ static int L_Text( lua_State *L ) {
 	lua_pushtag( L, com->p );
 	return 1;
 }
-/**
+/***
  * @brief Creates a Message Window, for information porposes..
  * @brief void newtWinMessage(char * title, char * buttonText, char * text, ...);
  * @param string( L, 1 )
  * @param string( L, 2 )
  * @param string( L, 3 )
- * @returns nil, if success
- * 
+ * @returns nil
  */
 static int L_WinMessage( lua_State *L ) {
 	char * title		= NULL;
@@ -1332,50 +1238,46 @@ static int L_WinMessage( lua_State *L ) {
 	return 1;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_SetSuspendCallback( lua_State *L ) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_ReflowText( lua_State *L ) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_TextboxReflowed( lua_State *L ) {
   return 0;
 }
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
- * 
  * 
  */
 static int L_AddCallback( lua_State *L ) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1386,7 +1288,7 @@ static int L_ClearSelection(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1397,7 +1299,7 @@ static int L_DeleteEntry(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1408,7 +1310,7 @@ static int L_SelectItem(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1419,7 +1321,7 @@ static int L_GetSelection(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1430,7 +1332,7 @@ static int L_GetNumLines(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1441,7 +1343,7 @@ static int L_InsertEntry(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1452,7 +1354,7 @@ static int L_SetValue(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1463,7 +1365,7 @@ static int L_SetBackground(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1474,7 +1376,7 @@ static int L_SetHeight(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1485,7 +1387,7 @@ static int L_SetCurrent(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1496,7 +1398,7 @@ static int L_SetCurrentByKey(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
@@ -1507,7 +1409,7 @@ static int L_SetEntry(lua_State *L) {
   return 0;
 }
 
-/**
+/***
  * @brief 
  * @param L 
  * @returns 
