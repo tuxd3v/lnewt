@@ -2,64 +2,63 @@
 
 #include "../include/lnewt.h"
 
-/**
- * @brief 
- * 
+/***
+ * @brief define MYNAME as LNEWT
  * 
  */
 #define MYNAME "LNEWT"
-/**
- * @brief 
- * 
+
+/***
+ * @brief define MYVERSION String
  * 
  */
 #define MYVERSION MYNAME " binding for " LUA_VERSION " 2013.03.20"
 
-/**
- * @brief 
- * 
+/***
+ * @brief define TYPE_COMPONENT as Newt.Component
  * 
  */
 #define TYPE_COMPONENT "Newt.Component"
 
-/**
- * @brief 
- * @param L 
- * @returns 
- * 
+/***
+ * @brief This function allocates a new block of memory with the size of 'com_t' type,
+ * @brief Pushes onto the stack a new full userdata of type 'com_t' with the block address,
+ * @brief And returns this address.
+ * @brief The host program can freely use this memory.
+ * @return Returns the block address of new object of type 'com_t'.
  * 
  */
 #define lua_newncom(L) ((component)(lua_newuserdata(L, sizeof(struct com_t))))
-/**
- * @brief 
- * @param L 
- * @param i 
- * @returns 
- * 
+
+/***
+ * @brief At the given index, get userdata object( component ), or NULL
+ * @param index i
+ * @return If the value at the given index, is a full userdata, returns its block address.
+ * @return If the value at the given index, is a light userdata, returns its pointer.
+ * @return Otherwise, returns NULL.
  * 
  */
 #define lua_toncom(L, i) ((component)(lua_touserdata(L, i)))
 
-/**
- * @brief 
- * 
+/***
+ * @brief define boolean as an integer number
  * 
  */
 #define bool int
-/**
- * @brief 
- * 
+
+/***
+ * @brief define false as value 0
  * 
  */
 #define false 0
-/**
- * @brief 
- * 
+
+/***
+ * @brief define true as value 1
  * 
  */
 #define true 1
 
-/**
+/***
  * @brief check and return pointer at index i
  * @param int i
  * @returns pointer
