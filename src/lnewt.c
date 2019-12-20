@@ -59,14 +59,10 @@
  */
 #define true 1
 
-
-/* check and return pointer */
 /**
- * @brief 
- * @param L 
- * @param i 
- * @returns 
- * 
+ * @brief check and return pointer at index i
+ * @param int i
+ * @returns pointer
  * 
  */
 void *luaL_checkpointer( lua_State* L, int i ) {
@@ -74,12 +70,10 @@ void *luaL_checkpointer( lua_State* L, int i ) {
 	return lua_touserdata( L, i );
 }
 
-/* check and return component object parameter */
-/**
- * @brief 
- * @param L 
- * @param i 
- * @returns 
+/***
+ * @brief check and return component object parameter
+ * @param index int i
+ * @returns Component at index i
  * 
  * 
  */
