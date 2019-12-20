@@ -4,7 +4,7 @@
 
 /***
  * @summary define MYNAME as LNEWT
- * @module LNewt
+ * @module lnewt
  */
 #define MYNAME "LNEWT"
 
