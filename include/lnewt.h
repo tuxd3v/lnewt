@@ -1,3 +1,12 @@
+/**
+ * @file lnewt.h
+ * @author Several
+ * @date 23 December 2019
+ * @brief This file contain lnewt declaration for LNewt Library Lua 5.3 Bindings
+ *
+ * @see dhdhd
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,8 +29,12 @@
 #define TYPE_TEXTBOX 8
 
 
-/* libnewt internals - very naughty */
+typedef struct com_t * component;
 
+
+/***
+ * @brief libnewt internals - very naughty
+ */
 struct newtComponent_struct {
 	/* common data */
 	int height, width;
@@ -40,7 +53,9 @@ struct newtComponent_struct {
 	void * data;
 };
 
-/* Holds all the relevant information for this listbox */
+/***
+ * @brief Holds all the relevant information for this listbox
+ */
 struct listbox {
 	newtComponent sb;
 	int curWidth;
@@ -56,24 +71,24 @@ struct listbox {
 	int flags;
 };
 
-
-/** wrapper structs **/
-
+/***
+ * @brief wrapper structs
+ */
 struct com_t {
 	newtComponent p;
 	int t;
 };
 
-typedef struct com_t * component;
-
-/** module registration **/
-
-/* open the library - used by require() */
+/***
+ * @brief module registration
+ * @brief open the library - used by require()
+ */
 LUALIB_API int luaopen_lnewt( lua_State *L );
 
-/** exported functions **/
-
-/* root functions */
+/***
+ * @brief exported functions
+ * @brief root functions
+ */
 static int L_Init( lua_State *L );
 static int L_Cls( lua_State *L );
 static int L_WaitForKey( lua_State *L );
@@ -86,6 +101,14 @@ static int L_PushHelpLine( lua_State *L );
 static int L_PopHelpLine( lua_State *L );
 static int L_Refresh( lua_State *L );
 static int L_Finished( lua_State *L );
+/***
+ * @brief Creates a Message Window, for information porposes..
+ * @brief void newtWinMessage(char * title, char * buttonText, char * text, ...);
+ * @param string( L, 1 )
+ * @param string( L, 2 )
+ * @param string( L, 3 )
+ * @return nil
+ */
 static int L_WinMessage( lua_State *L );
 static int L_Suspend( lua_State *L );
 static int L_Resume( lua_State *L );
@@ -97,7 +120,9 @@ static int L_Delay( lua_State *L );
 static int L_GetScreenSize( lua_State *L );
 static int L_ReflowText( lua_State *L );
 
-/* widgets */
+/***
+ * @brief widgets
+ */
 static int L_Button( lua_State *L );
 static int L_CompactButton( lua_State *L );
 static int L_Checkbox( lua_State *L );
@@ -111,7 +136,9 @@ static int L_Radiobutton( lua_State *L );
 static int L_Scale( lua_State *L );
 static int L_VerticalScrollbar( lua_State *L );
 
-/* Newt.Component Object */
+/***
+ * @brief Newt.Component Object
+ */
 static int L_AddCallback( lua_State *L );
 static int L_AddComponents( lua_State *L );
 static int L_AddHotKey( lua_State *L );
