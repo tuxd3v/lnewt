@@ -1,3 +1,11 @@
+/**
+ * @file lnewt.c
+ * @author Several
+ * @date 23 December 2019
+ * @brief This file contain lnewt defenitions for LNewt Library Lua 5.3 Bindings
+ *
+ * @see dhdhd
+ */
 #include <stdlib.h>
 
 #include "../include/lnewt.h"
