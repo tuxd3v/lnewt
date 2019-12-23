@@ -32,7 +32,7 @@
 typedef struct com_t * component;
 
 
-/***
+/**
  * @brief libnewt internals - very naughty
  */
 struct newtComponent_struct {
@@ -53,7 +53,7 @@ struct newtComponent_struct {
 	void * data;
 };
 
-/***
+/**
  * @brief Holds all the relevant information for this listbox
  */
 struct listbox {
@@ -71,7 +71,7 @@ struct listbox {
 	int flags;
 };
 
-/***
+/**
  * @brief wrapper structs
  */
 struct com_t {
@@ -79,13 +79,13 @@ struct com_t {
 	int t;
 };
 
-/***
+/**
  * @brief module registration
  * @brief open the library - used by require()
  */
 LUALIB_API int luaopen_lnewt( lua_State *L );
 
-/***
+/**
  * @brief exported functions
  * @brief root functions
  */
@@ -101,7 +101,7 @@ static int L_PushHelpLine( lua_State *L );
 static int L_PopHelpLine( lua_State *L );
 static int L_Refresh( lua_State *L );
 static int L_Finished( lua_State *L );
-/***
+/**
  * @brief Creates a Message Window, for information porposes..
  * @brief void newtWinMessage(char * title, char * buttonText, char * text, ...);
  * @param string( L, 1 )
@@ -120,7 +120,7 @@ static int L_Delay( lua_State *L );
 static int L_GetScreenSize( lua_State *L );
 static int L_ReflowText( lua_State *L );
 
-/***
+/**
  * @brief widgets
  */
 static int L_Button( lua_State *L );
@@ -136,36 +136,152 @@ static int L_Radiobutton( lua_State *L );
 static int L_Scale( lua_State *L );
 static int L_VerticalScrollbar( lua_State *L );
 
-/***
+/**
  * @brief Newt.Component Object
  */
 static int L_AddCallback( lua_State *L );
 static int L_AddComponents( lua_State *L );
 static int L_AddHotKey( lua_State *L );
 static int L_AppendEntry( lua_State *L );
+/**
+ * @brief listbox:Clear()
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_Clear( lua_State *L );
+/**
+ * @brief 
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_ClearSelection( lua_State *L );
 static int L_DeleteEntry( lua_State *L );
+/**
+ * @brief 
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_Destroy( lua_State *L );
+/**
+ * @brief form:Draw()
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_Draw( lua_State *L );
+/**
+ * @brief Get Curent Component, RADIOBUTTON,LISTBOX, etc
+ * @brief com = radiobutton:GetCurrent()
+ * @param component( L, 1 )
+ * @return integer or RADIOBUTTON Component
+ */
 static int L_GetCurrent( lua_State *L );
 static int L_GetSelection( lua_State *L );
 static int L_GetNumLines( lua_State *L );
+/**
+ * @brief value = entry:GetValue()
+ * @brief value = checkbox:GetValue()
+ * @param L 
+ * @return lua_pushboolean()
+ * 
+ */
 static int L_GetValue( lua_State *L );
+/**
+ * @brief 
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_InsertEntry( lua_State *L );
+/**
+ * @brief hex = com:ID()
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_ID( lua_State *L );
+/**
+ * @brief reason, value = form:Run()
+ * @param L 
+ * @return lua_pushcomponent( L, result.u.co, TYPE_UNKNOWN ) or lua_pushinteger( L, result.u.key )
+ * 
+ */
 static int L_Run( lua_State *L );
+/**
+ * @brief 
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_SelectItem( lua_State *L );
+/**
+ * @brief entry:Set(value, [cursoratend])
+ * @brief scale:Set(value)
+ * @param L 
+ * @return void
+ * 
+ */
 static int L_Set( lua_State *L );
 static int L_SetBackground( lua_State *L );
 static int L_SetCurrent( lua_State *L );
 static int L_SetCurrentByKey( lua_State *L );
 static int L_SetEntry( lua_State *L );
 static int L_SetHeight( lua_State *L );
+/**
+ * @brief label:SetText(text)
+ * @param L 
+ * @return LabelSetText( com->p, text ) or TextboxSetText( com->p, text )
+ * 
+ */
 static int L_SetText( lua_State *L );
+/**
+ * @brief form:SetTimer(millisecs)
+ * @param L 
+ * @return FormSetTimer( com->p, period )
+ * 
+ */
 static int L_SetTimer( lua_State *L );
+/**
+ * @brief com = com:SetType(type)
+ * @param L 
+ * @return component( L, com->p, type )
+ * 
+ * 
+ */
 static int L_SetType( lua_State *L );
+/**
+ * @brief L_SetValue
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_SetValue( lua_State *L );
+/**
+ * @brief 
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_SetWidth( lua_State *L );
+/**
+ * @brief com:TakesFocus(bool)
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_TakesFocus( lua_State *L );
+/**
+ * @brief tag = com:Text()
+ * @param component( L, 1 )
+ * @return tag
+ * 
+ */
 static int L_Text( lua_State *L );
