@@ -47,8 +47,9 @@ typedef struct listbox	listbox_t;
 /**
  * @brief typedef for generic struct pointer component
  * also, __declared in newt.h_
- * __typedef struct newtComponent_struct * component_t;__
+ * __typedef struct newtComponent_struct * newtComponent;__
 */
+typedef struct newtComponent_struct * newtComponent
 typedef struct newtComponent_struct * component_t;
 
 /**
