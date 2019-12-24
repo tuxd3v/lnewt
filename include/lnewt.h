@@ -49,7 +49,7 @@ typedef struct newtComponent_struct * component_t;
 
 /**
  * @brief libnewt internals - very naughty
- * Also declared in __newt_pr.h__
+ * Also declared in __newt_pr.h__... why declaring it twice??
  */
 struct newtComponent_struct {
 	/* common data */
