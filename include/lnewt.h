@@ -55,6 +55,7 @@ typedef struct newtComponent_struct component_t;
 /**
  * @brief libnewt internals - very naughty
  * Also declared in __newt_pr.h__... why declaring it twice??
+ * don't want to depend of __newt_pr.h__ ??
  */
 struct newtComponent_struct {
 	/* common data */
@@ -79,7 +80,8 @@ struct newtComponent_struct {
  * @brief Holds all the relevant information for this listbox
  */
 struct listbox {
-	newtComponent sb;		/**< struct newtComponent_struct * newtComponent #sb. */
+	/*newtComponent sb;*/		/**< struct newtComponent_struct * newtComponent #sb. */
+	component_t * sb;
 	int curWidth;			/**< signed integer current collumns width #curWidth */
 	int curHeight;			/**< signed integer current collumns height #curHeight */
 	int sbAdjust;			/**< signed integer ??? #sbAdjust */
@@ -97,7 +99,8 @@ struct listbox {
  * @brief wrapper structs
  */
 struct com_t {
-	newtComponent p;
+	/*newtComponent p;*/
+	component_t *p;
 	int t;
 };
 
