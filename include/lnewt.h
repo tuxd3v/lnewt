@@ -45,7 +45,7 @@ enum type_t {
 typedef struct com_t * component;
 
 typedef struct listbox	listbox_t;
-typedef struct newtComponent_struct * Component_t;
+typedef struct newtComponent_struct * component_t;
 
 /**
  * @brief libnewt internals - very naughty
