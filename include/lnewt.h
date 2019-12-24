@@ -50,7 +50,7 @@ typedef struct listbox	listbox_t;
  * __typedef struct newtComponent_struct * newtComponent;__
 */
 typedef struct newtComponent_struct * newtComponent
-typedef struct newtComponent_struct * component_t;
+typedef struct newtComponent_struct component_t;
 
 /**
  * @brief libnewt internals - very naughty
