@@ -109,7 +109,7 @@ void lua_pushcomponent( lua_State *L, newtComponent com, int type ) {
  * @brief register component tag
  * @param newtComponent com
  * @param const char *tag
- * 
+ * @return void
  */
 void lua_regtag( lua_State *L, newtComponent com, const char *tag ) {
 	char id[ 32 ];

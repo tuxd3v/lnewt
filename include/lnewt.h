@@ -15,7 +15,19 @@
 #include <lua5.3/lauxlib.h>
 #include <newt.h>
 
-
+enum type_t {
+	TYPE_FORM = -1,
+	TYPE_UNKNOWN,
+	TYPE_LABEL,
+	TYPE_ENTRY,
+	TYPE_BUTTON,
+	TYPE_CHECKBOX,
+	TYPE_RADIOBUTTON,
+	TYPE_LISTBOX,
+	TYPE_SCALE,
+	TYPE_TEXTBOX
+} type;
+/*
 #define TYPE_FORM -1
 #define TYPE_UNKNOWN 0
 #define TYPE_LABEL 1
@@ -26,16 +38,18 @@
 #define TYPE_LISTBOX 6
 #define TYPE_SCALE 7
 #define TYPE_TEXTBOX 8
-
+*/
 /**
  * @brief typedef for generic struct pointer component
  */
 typedef struct com_t * component;
+
 typedef struct listbox	listbox_t;
 typedef struct newtComponent_struct * newtComponent_t;
 
 /**
  * @brief libnewt internals - very naughty
+ * Also declared in __newt_pr.h__
  */
 struct newtComponent_struct {
 	/* common data */
@@ -53,16 +67,17 @@ struct newtComponent_struct {
 	void * destroyCallbackData;
 
 	void * data;
+
 };
 
 /**
  * @brief Holds all the relevant information for this listbox
  */
 struct listbox {
-	newtComponent sb;
-	int curWidth;
-	int curHeight;
-	int sbAdjust;
+	newtComponent sb;		/**< struct newtComponent_struct * newtComponent #sb. */
+	int curWidth;			/**< signed integer current collumns width #curWidth */
+	int curHeight;			/**< signed integer current collumns height #curHeight */
+	int sbAdjust;			/**< signed integer ??? #sbAdjust */
 	int bdxAdjust, bdyAdjust;
 	int numItems, numSelected;
 	int userHasSetWidth;
