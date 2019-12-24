@@ -43,7 +43,7 @@ enum type_t {
  * @brief typedef for generic struct pointer component
  */
 typedef struct com_t * component;
-typedef struct listbox	listbox_t;
+typedef struct listbox listbox_t;
 /**
  * @brief typedef for generic struct pointer component
  * also, __declared in newt.h_
