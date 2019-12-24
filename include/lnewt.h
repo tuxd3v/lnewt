@@ -1,10 +1,9 @@
 /**
- * @file lnewt.h
+ * @brief  This file contain lnewt declaration for LNewt Library Lua 5.3 Bindings
+ * @file   lnewt.h
  * @author Several
- * @date 23 December 2019
- * @brief This file contain lnewt declaration for LNewt Library Lua 5.3 Bindings
- *
- * @see dhdhd
+ * @date   23 December 2019
+ * @see    dhdhd
  */
 
 #include <stdlib.h>
@@ -28,9 +27,12 @@
 #define TYPE_SCALE 7
 #define TYPE_TEXTBOX 8
 
-
+/**
+ * @brief typedef for generic struct pointer component
+ */
 typedef struct com_t * component;
-
+typedef struct listbox	listbox_t;
+typedef struct newtComponent_struct * newtComponent_t;
 
 /**
  * @brief libnewt internals - very naughty
@@ -140,8 +142,30 @@ static int L_VerticalScrollbar( lua_State *L );
  * @brief Newt.Component Object
  */
 static int L_AddCallback( lua_State *L );
+/**
+ * @brief Newt.Component object
+ * AddComponents(com, ...)
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_AddComponents( lua_State *L );
+/**
+ * @brief form:AddHotKey(key)
+ * @brief form:AddHotKey({key, ...})
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_AddHotKey( lua_State *L );
+/**
+ * @brief listbox:AppendEntry(text, [index])
+ * @brief listbox:AppendEntry({text, text}, [startindex])
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_AppendEntry( lua_State *L );
 /**
  * @brief listbox:Clear()
@@ -151,16 +175,22 @@ static int L_AppendEntry( lua_State *L );
  */
 static int L_Clear( lua_State *L );
 /**
- * @brief 
+ * @brief L_ClearSelection
+ * @param L 
+ * @return 
+ * 
+ */
+static int L_ClearSelection( lua_State *L );
+/**
+ * @brief L_DeleteEntry
  * @param L 
  * @return 
  * 
  * 
  */
-static int L_ClearSelection( lua_State *L );
 static int L_DeleteEntry( lua_State *L );
 /**
- * @brief 
+ * @brief L_Destroy
  * @param L 
  * @return 
  * 
@@ -180,7 +210,21 @@ static int L_Draw( lua_State *L );
  * @return integer or RADIOBUTTON Component
  */
 static int L_GetCurrent( lua_State *L );
+/**
+ * @brief L_GetSelection
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_GetSelection( lua_State *L );
+/**
+ * @brief L_GetNumLines
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_GetNumLines( lua_State *L );
 /**
  * @brief value = entry:GetValue()
@@ -191,7 +235,7 @@ static int L_GetNumLines( lua_State *L );
  */
 static int L_GetValue( lua_State *L );
 /**
- * @brief 
+ * @brief L_InsertEntry
  * @param L 
  * @return 
  * 
@@ -228,10 +272,41 @@ static int L_SelectItem( lua_State *L );
  * 
  */
 static int L_Set( lua_State *L );
+/**
+ * @brief L_SetBackground
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_SetBackground( lua_State *L );
+/**
+ * @brief L_SetCurrent
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_SetCurrent( lua_State *L );
+/**
+ * @brief L_SetCurrentByKey
+ * @param L 
+ * @return 
+ * 
+ * 
+ */
 static int L_SetCurrentByKey( lua_State *L );
+/**
+ * @brief L_SetEntry
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_SetEntry( lua_State *L );
+/**
+ * @brief L_SetHeight
+ * @param L 
+ * @return 
+ * 
+ */
 static int L_SetHeight( lua_State *L );
 /**
  * @brief label:SetText(text)

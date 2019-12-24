@@ -2,7 +2,7 @@
  * @file lnewt.c
  * @author Several
  * @date 23 December 2019
- * @brief This file contain lnewt defenitions for LNewt Library Lua 5.3 Bindings
+ * @brief This file contain lnewt defenitions, for Lua 5.3 Bindings, LNewt Library
  *
  * @see dhdhd
  */
@@ -801,14 +801,16 @@ static int L_Radiobutton( lua_State *L ) {
 }
 
 /**
- * @brief com = Scale(left, top, width, max)
- * @param L 
- * @return 
+ * @brief __com = Scale(left, top, width, max)__
+ * @param lua_State *L
+ * @return newtComponent Scale
  * 
  */
 static int L_Scale( lua_State *L ) {
-	int left; int top;
-	int width; lua_Integer max;
+	int left;	/**< Space relative to Left Corner#left. */
+	int top;	/**< Space relative to Top Corner#top.  */
+	int width;	/**< Space relative to Top Corner#width.  */
+	lua_Integer max;
 	newtComponent result;
 
 	left	= luaL_checkinteger( L, 1 );
@@ -822,7 +824,7 @@ static int L_Scale( lua_State *L ) {
 }
 
 /**
- * @brief 
+ * @brief L_VerticalScrollbar
  * @param L 
  * @return 
  * 
@@ -956,7 +958,7 @@ static int L_Clear( lua_State *L ) {
 }
 
 /**
- * @brief 
+ * @brief L_Destroy
  * @param L 
  * @return 
  * 
@@ -1239,7 +1241,7 @@ static int L_WinMessage( lua_State *L ) {
 }
 
 /**
- * @brief 
+ * @brief L_SetSuspendCallback
  * @param L 
  * @return 
  * 
@@ -1249,7 +1251,7 @@ static int L_SetSuspendCallback( lua_State *L ) {
 }
 
 /**
- * @brief 
+ * @brief L_ReflowText
  * @param L 
  * @return 
  * 
@@ -1259,7 +1261,7 @@ static int L_ReflowText( lua_State *L ) {
 }
 
 /**
- * @brief 
+ * @brief L_TextboxReflowed
  * @param L 
  * @return 
  * 
@@ -1268,7 +1270,7 @@ static int L_TextboxReflowed( lua_State *L ) {
   return 0;
 }
 /**
- * @brief 
+ * @brief L_AddCallback
  * @param L 
  * @return 
  * 
@@ -1278,7 +1280,7 @@ static int L_AddCallback( lua_State *L ) {
 }
 
 /**
- * @brief 
+ * @brief L_ClearSelection
  * @param L 
  * @return 
  * 
@@ -1289,7 +1291,7 @@ static int L_ClearSelection(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_DeleteEntry
  * @param L 
  * @return 
  * 
@@ -1300,10 +1302,9 @@ static int L_DeleteEntry(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SelectItem
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_SelectItem(lua_State *L) {
@@ -1311,10 +1312,9 @@ static int L_SelectItem(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_GetSelection
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_GetSelection(lua_State *L) {
@@ -1322,10 +1322,9 @@ static int L_GetSelection(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_GetNumLines
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_GetNumLines(lua_State *L) {
@@ -1333,10 +1332,9 @@ static int L_GetNumLines(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_InsertEntry
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_InsertEntry(lua_State *L) {
@@ -1344,10 +1342,9 @@ static int L_InsertEntry(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetValue
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_SetValue(lua_State *L) {
@@ -1355,10 +1352,9 @@ static int L_SetValue(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetBackground
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_SetBackground(lua_State *L) {
@@ -1366,10 +1362,9 @@ static int L_SetBackground(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetHeight
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_SetHeight(lua_State *L) {
@@ -1377,10 +1372,9 @@ static int L_SetHeight(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetCurrent
  * @param L 
  * @return 
- * 
  * 
  */
 static int L_SetCurrent(lua_State *L) {
@@ -1388,7 +1382,7 @@ static int L_SetCurrent(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetCurrentByKey
  * @param L 
  * @return 
  * 
@@ -1399,7 +1393,7 @@ static int L_SetCurrentByKey(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetEntry
  * @param L 
  * @return 
  * 
@@ -1409,7 +1403,7 @@ static int L_SetEntry(lua_State *L) {
 }
 
 /**
- * @brief 
+ * @brief L_SetWidth
  * @param L 
  * @return 
  * 
