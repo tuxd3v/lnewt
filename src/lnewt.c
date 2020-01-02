@@ -1235,9 +1235,8 @@ static int L_WinMessage( lua_State *L ) {
 	lua_pop( L, 3 );
 
 	newtWinMessage( title, buttonText, text );
-	lua_pushnil( L );
 
-	return 1;
+	return 0;
 }
 
 /**
