@@ -75,15 +75,16 @@ endif
 
 ifdef TUNE
 $(info ** TUNE     = $(TUNE) **)
-CFLAGS		:= -march=$(ARCH) -mtune=$(TUNE) -fPIC -Wall -Werror -DLUA_C89_NUMBERS -O3 -I$(IDIR) # Compiler Flags
-TEST_CFLAGS	:= -march=$(ARCH) -mtune=$(TUNE) -DLUA_C89_NUMBERS -O3 -g -I$(IDIR)
+CFLAGS		:= -march=$(ARCH) -mtune=$(TUNE) -fPIC -Wall -Werror -O3 -I$(IDIR) # Compiler Flags
+TEST_CFLAGS	:= -march=$(ARCH) -mtune=$(TUNE) -O3 -g -I$(IDIR)
 else
-CFLAGS		:= -march=$(ARCH) -fPIC -Wall -Werror -DLUA_C89_NUMBERS -O3 -I$(IDIR) # Compiler Flags
-TEST_CFLAGS	:= -march=$(ARCH) -DLUA_C89_NUMBERS -O3 -g -I$(IDIR)
+CFLAGS		:= -march=$(ARCH) -fPIC -Wall -Werror -O3 -I$(IDIR) # Compiler Flags
+TEST_CFLAGS	:= -march=$(ARCH) -O3 -g -I$(IDIR)
 endif
 LDFLAGS		:= -shared -Wl,-soname,$(NAME).so.$(MAJOR) -l$(DEPS) # Linker Flags
 TEST_LDFLAGS	:= -L/usr/lib/aarch64-linux-gnu -l$(DEPS) -lm -ldl
 # end makegoals
+# -DLUA_C89_NUMBERS
 endif
 
 ## LNEWT source/headers.. Code Related
