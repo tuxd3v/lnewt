@@ -71,7 +71,7 @@
  * @ brief newtDefaultColorPalette first declared and defined as 'extern' in libnewt-dev [ newt.h/newt.c ]
  * @ brief bellow is a representation of a new assigment
 */
-newtDefaultColorPalette = {
+const struct newtColors newtDefaultColorPalette = {
 	"black", "magenta"; 	/* root fg, bg */
 	"black", "lightgray";	/* border fg, bg */
 	"black", "lightgray";	/* window fg, bg */
