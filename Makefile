@@ -50,7 +50,7 @@ override undefine ARCH
 endif
 ifeq ($(LONG_BIT),32)
 ARCH		:=$(shell unset ARCH;${PWD}/aarch march)
-ARCH		:=$(if $(findstring nil,$(ARCH)),,$(ARCH))
+#ARCH		:=$(if $(findstring nil,$(ARCH)),,$(ARCH))
 ARCH		:=$(if $(findstring x86,$(MACHINE)),i386,$(ARCH))
 ARCH		:=$(if $(findstring aarch64,$(MACHINE)),armv7-a,$(ARCH))
 ARCH		:=$(if $(findstring android,$(MACHINE)),armv7,$(ARCH))
@@ -64,11 +64,17 @@ ARCH		:=$(if $(findstring x86,$(MACHINE)),x86-64,$(ARCH))
 ARCH		:=$(if $(findstring android,$(MACHINE)),armv7,$(ARCH))
 $(info ** ARCH     = $(ARCH) **)
 TUNE		:=$(shell ${PWD}/aarch mtune)
-TUNE		:=$(if $(findstring nil,$(TUNE)),,$(TUNE))
-else
+#TUNE		:=$(if $(findstring nil,$(TUNE)),,$(TUNE))
+endif
+ifeq ($(ARCH),nil)
 $(warning ** ARCH     = $(ARCH) **,Unknown Arch type..)
 $(info ** ARCH    = native **, Will be used..)
 ARCH := native
+endif
+ifeq ($(TUNE),nil)
+$(warning ** TUNE     = $(TUNE) **,Unknown Tune arch type..)
+$(info ** TUNE    = native **, Will be used..)
+TUNE := native
 endif
 
 ifdef TUNE
