@@ -145,11 +145,15 @@ $(NAME).so.$(VERSION): $(LNEWT_OBJS)
 install:
 	$(info Install new LNEWT Library ...........: ${NAME}.so.${VERSION} in '${LDIR}')
 	@install --preserve-timestamps --owner=root --group=root --mode=444 --target-directory=${LDIR} ${NAME}.so.${VERSION}
-	$(info Creating soname symLink .............: ${NAME}.so in '${LDIR}')
-	@if [ -L ${LDIR}/lnewt.so ];then	\
-		rm ${LDIR}/lnewt.so;		\
+	$(info Check Lua SymLink Path, if exist.............: $ '/usr/local/lib/lua/5.3')
+	@if [ ! -d /usr/local/lib/lua/5.3 ];then	\
+		mkdir -pv /usr/local/lib/lua/5.3;		\
+	fi	
+	$(info Creating soname symLink .............: ${NAME}.so in '/usr/local/lib/lua/5.3')
+	@if [ -L /usr/local/lib/lua/5.3/lnewt.so ];then	\
+		rm /usr/local/lib/lua/5.3/lnewt.so;		\
 	fi
-	@ln -s $(LDIR)/$(NAME).so.$(VERSION) ${LDIR}/lnewt.so
+	@ln -s $(LDIR)/$(NAME).so.$(VERSION) /usr/local/lib/lua/5.3/lnewt.so
 
 .PHONY: clean
 clean:
