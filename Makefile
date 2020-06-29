@@ -49,7 +49,7 @@ ifdef ARCH
 override undefine ARCH
 endif
 ifeq ($(LONG_BIT),32)
-ARCH		:=$(shell unset ARCH;${PWD}/aarch march)
+ARCH		:=$(shell unset ARCH;gcc -dumpmachine|cut -d- -f 1)
 #ARCH		:=$(if $(findstring nil,$(ARCH)),,$(ARCH))
 ARCH		:=$(if $(findstring x86,$(MACHINE)),i386,$(ARCH))
 ARCH		:=$(if $(findstring aarch64,$(MACHINE)),armv7-a,$(ARCH))
