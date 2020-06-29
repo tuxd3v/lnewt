@@ -10,7 +10,7 @@ endif
 NAME		:= lnewt
 MAJOR		:= 0
 MINOR		:= 52
-FIX		:= 19
+FIX		:= 20
 VERSION		:= $(MAJOR).$(MINOR).$(FIX)
 
 
@@ -139,13 +139,13 @@ $(NAME).so.$(VERSION): $(LNEWT_OBJS)
 
 .PHONY: install
 install:
-	$(info Install new LNEWT Library ...........: ${NAME}.so.${VERSION} in '${LDIR}')
+	$(info Install new LNEWT Library .........: ${NAME}.so.${VERSION} in '${LDIR}')
 	@install --preserve-timestamps --owner=root --group=root --mode=444 --target-directory=${LDIR} ${NAME}.so.${VERSION}
-	$(info Check Lua SymLink Path, if exist.....: $ '/usr/local/lib/lua/5.3')
+	$(info Check Lua SymLink Path, if exist...: $ '/usr/local/lib/lua/5.3')
 	@if [ ! -d /usr/local/lib/lua/5.3 ];then	\
 		mkdir -pv /usr/local/lib/lua/5.3;		\
 	fi	
-	$(info Creating soname symLink .............: ${NAME}.so in '/usr/local/lib/lua/5.3')
+	$(info Creating soname symLink ...........: ${NAME}.so in '/usr/local/lib/lua/5.3')
 	@if [ -L /usr/local/lib/lua/5.3/lnewt.so ];then	\
 		rm /usr/local/lib/lua/5.3/lnewt.so;		\
 	fi
