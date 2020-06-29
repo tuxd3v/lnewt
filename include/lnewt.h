@@ -49,7 +49,7 @@ typedef struct listbox listbox_t;
  * also, __declared in newt.h_
  * __typedef struct newtComponent_struct * newtComponent;__
 */
-typedef struct newtComponent_struct * newtComponent
+typedef struct newtComponent_struct * newtComponent;
 typedef struct newtComponent_struct component_t;
 
 /**
