@@ -10,7 +10,7 @@ endif
 NAME		:= lnewt
 MAJOR		:= 0
 MINOR		:= 52
-FIX		:= 20
+FIX		:= 19
 VERSION		:= $(MAJOR).$(MINOR).$(FIX)
 
 
