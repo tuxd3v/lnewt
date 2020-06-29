@@ -72,29 +72,29 @@
  * @ brief bellow is a representation of a new assigment
 */
 newtDefaultColorPalette = {
-	"black", "magenta", 	/* root fg, bg */
-	"black", "lightgray",	/* border fg, bg */
-	"black", "lightgray",	/* window fg, bg */
-	"yellow", "gray",	/* shadow fg, bg */
-	"green", "yellow",	/* title fg, bg */
-	"green", "yellow",	/* button fg, bg */
-	"green", "yellow",	/* active button fg, bg */
-	"lightgray", "blue",	/* checkbox fg, bg */
-	"lightgray", "red",	/* active checkbox fg, bg */
-	"white", "black",	/* entry box fg, bg */
-	"blue", "lightgray",	/* label fg, bg */
-	"white", "black",	/* listbox fg, bg */
-	"green", "yellow",	/* active listbox fg, bg */
-	"black", "lightgray",	/* textbox fg, bg */
-	"lightgray", "red",	/* active textbox fg, bg */
-	"white", "blue",	/* help line */
-	"lightgray", "blue",	/* root text */
-	"blue",			/* scale full */
-	"red",			/* scale empty */
-	"blue", "lightgray",	/* disabled entry fg, bg */
-	"white", "black",	/* compact button fg, bg */
-	"lightgray", "red",	/* active & sel listbox */
-	"black", "brown"	/* selected listbox */
+	"black", "magenta"; 	/* root fg, bg */
+	"black", "lightgray";	/* border fg, bg */
+	"black", "lightgray";	/* window fg, bg */
+	"yellow", "gray";	/* shadow fg, bg */
+	"green", "yellow";	/* title fg, bg */
+	"green", "yellow";	/* button fg, bg */
+	"green", "yellow";	/* active button fg, bg */
+	"lightgray", "blue";	/* checkbox fg, bg */
+	"lightgray", "red";	/* active checkbox fg, bg */
+	"white", "black";	/* entry box fg, bg */
+	"blue", "lightgray";	/* label fg, bg */
+	"white", "black";	/* listbox fg, bg */
+	"green", "yellow";	/* active listbox fg, bg */
+	"black", "lightgray";	/* textbox fg, bg */
+	"lightgray", "red";	/* active textbox fg, bg */
+	"white", "blue";	/* help line */
+	"lightgray", "blue";	/* root text */
+	"blue";			/* scale full */
+	"red";			/* scale empty */
+	"blue", "lightgray";	/* disabled entry fg, bg */
+	"white", "black";	/* compact button fg, bg */
+	"lightgray", "red";	/* active & sel listbox */
+	"black", "brown";	/* selected listbox */
 };
 
 /**
