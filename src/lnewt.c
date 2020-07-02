@@ -78,8 +78,8 @@ const struct newtColors newtDefaultColorPalette = {
 	"brightgreen", "gray",	/* window fg, bg */
 	"yellow", "gray",	/* shadow fg, bg */
 	"green", "yellow",	/* title fg, bg */
-	"green", "yellow",	/* button fg, bg */
-	"green", "yellow",	/* active button fg, bg */
+	"white", "black",	/* button fg, bg */
+	"lightgray", "red",	/* active button fg, bg */
 	"lightgray", "blue",	/* checkbox fg, bg */
 	"lightgray", "red",	/* active checkbox fg, bg */
 	"white", "black",	/* entry box fg, bg */
