@@ -7,7 +7,8 @@ This is a simple [newt][newt] binding library for lua 5.3.
 This Library was first forked from [luanewt][luanewt] by [DavidFeng][1st_fork]..
 Later, it was forked by me..
 
-It has not yet been tested, but will in Devuan..
+It has being tested in Devuan Beowulf,
+Devuan Chimaera, introduces changes that we still have to fix in lnewt, to be usable in Chimaera
 
 ## TODO
 
