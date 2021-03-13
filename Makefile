@@ -1,6 +1,6 @@
 ## Lua-dev Newt-dev Dependencies Related
 #
-DEPS		:= lua5.3 -lnewt
+DEPS		:= lua5.3 -lnewt -lslang
 ifeq ($(MAKECMDGOALS),)
 MAKECMDGOALS := all
 endif
@@ -10,7 +10,7 @@ endif
 NAME		:= lnewt
 MAJOR		:= 0
 MINOR		:= 52
-FIX		:= 19
+FIX		:= 21
 VERSION		:= $(MAJOR).$(MINOR).$(FIX)
 
 
@@ -75,13 +75,13 @@ endif
 
 ifdef TUNE
 $(info ** TUNE     = $(TUNE) **)
-CFLAGS		:= -march=$(ARCH) -mtune=$(TUNE) -fPIC -Wall -Werror -O3 -I$(IDIR) # Compiler Flags
+CFLAGS		:= -march=$(ARCH) -mtune=$(TUNE) -fPIC -Wall -Werror -O3 -D_GNU_SOURCE -I$(IDIR)# Compiler Flags
 TEST_CFLAGS	:= -march=$(ARCH) -mtune=$(TUNE) -O3 -g -I$(IDIR)
 else
-CFLAGS		:= -march=$(ARCH) -fPIC -Wall -Werror -O3 -I$(IDIR) # Compiler Flags
-TEST_CFLAGS	:= -march=$(ARCH) -O3 -g -I$(IDIR)
+CFLAGS		:= -march=$(ARCH) -fPIC -Wall -Werror -O3 -D_GNU_SOURCE -I$(IDIR)# Compiler Flags
+TEST_CFLAGS	:= -march=$(ARCH) -O3 -g -D_GNU_SOURCE -I$(IDIR)
 endif
-LDFLAGS		:= -shared -Wl,-soname,$(NAME).so.$(MAJOR) -l$(DEPS) # Linker Flags
+LDFLAGS		:= -Wl,-soname,$(NAME).so.$(MAJOR)# Linker Flags
 TEST_LDFLAGS	:= -L/usr/lib/aarch64-linux-gnu -l$(DEPS) -lm -ldl
 # end makegoals
 # -DLUA_C89_NUMBERS
@@ -134,9 +134,8 @@ all   : $(NAME).so.$(VERSION)
 $(LNEWT_OBJS): $(LNEWT_SRCS) $(LNEWT_HDRS)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-
 $(NAME).so.$(VERSION): $(LNEWT_OBJS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -shared -o $@ $(LDFLAGS) $^ -l$(DEPS)
 
 .PHONY: install
 install:
