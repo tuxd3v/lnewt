@@ -8,7 +8,7 @@ This Library was first forked from [luanewt][luanewt] by [DavidFeng][1st_fork]..
 Later, it was forked by me..
 
 It has being tested in Devuan Beowulf,
-Devuan Chimaera, introduces changes that we still have to fix in lnewt, to be usable in Chimaera
+and Devuan Chimaera,now using libnewt0.52.21 
 
 ## TODO
 
