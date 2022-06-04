@@ -11,7 +11,7 @@ description = {
 	maintainer	= "tuxd3v <tuxd3v@sapo.pt>",
 }
 source = {
-	url	= "git://github.com/tuxd3v/lnewt",
+	url	= "https://github.com/tuxd3v/lnewt",
 	branch	= "master"
 }
 dependencies = {
