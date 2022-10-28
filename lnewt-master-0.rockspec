@@ -34,7 +34,7 @@ build = {
 	build_variables		= {},
 	install_target		= "install",
 	install_pass		= true,
-	install_variables	= { LDIR="/usr/local/lib/luarocks/rocks/" .. package .. "/" .. version },
+	install_variables	= { LDIR="/usr/local/lib/luarocks/rocks-5.3/" .. package .. "/" .. version },
 	variables		= {},
 	modules			= { lnewt = "src/lnewt.c" }
 }
