@@ -44,6 +44,7 @@ and Devuan Chimaera,now using libnewt0.52.21
 ##### A. Using Luarocks 
  1. Install from master( last code, but more prone to errors.. )
     * `luarocks build https://raw.githubusercontent.com/tuxd3v/lnewt/master/lnewt-master-0.rockspec`
+    * `find /usr/local/lib/luarocks -type d -exec chmod 0755 {} \;`
  2. Remove using LuaRocks
     * `luarocks remove lnewt`
 
