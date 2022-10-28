@@ -1,11 +1,5 @@
 #! /usr/bin/env lua
 
---- Copyright (C) 2018 Carlos Domingues aka tuxd3v <tuxd3v@sapo.pt>.
---- Current maintainer:
--- tuxd3v <tuxd3v@sapo.pt>
-
---- Original author:
---tuxd3v <tuxd3v@sapo.pt>
 
 if _VERSION ~= "Lua 5.3" then
 	print( _VERSION  )
@@ -28,10 +22,10 @@ local MACHINE = {}
 	MACHINE.LITTLE = {}
 		-- 0xc09
 		MACHINE.big[ 3081 ]    = { tune = "cortex-a9",  arch = "armv7-a"    }
-		-- 0xc0f
-		MACHINE.big[ 3087 ]    = { tune = "cortex-a15", arch = "armv7-a"    }
 		-- 0xc0e
 		MACHINE.big[ 3086 ]    = { tune = "cortex-a17", arch = "armv7-a"    }
+		-- 0xc0f
+		MACHINE.big[ 3087 ]    = { tune = "cortex-a15", arch = "armv7-a"    }
 		-- 0xd07
 		MACHINE.big[ 3335 ]    = { tune = "cortex-a57", arch = "armv8-a+crc"}
 		-- 0xd08
@@ -40,6 +34,12 @@ local MACHINE = {}
 		MACHINE.big[ 3337 ]    = { tune = "cortex-a73", arch = "armv8-a+crc"}
 		-- 0xd0a
 		MACHINE.big[ 3338 ]    = { tune = "cortex-a75", arch = "armv8.2-a"  }
+		-- 0xd0b
+		MACHINE.big[ 3339 ]    = { tune = "cortex-a76", arch = "armv8.2-a"  }
+		-- 0xd0d
+		MACHINE.big[ 3341 ]    = { tune = "cortex-a77", arch = "armv8.2-a"  }
+		-- 0xd47
+		MACHINE.big[ 3399 ]    = { tune = "cortex-a710", arch = "armv9-a"   }
 		-- 0xb76
 		MACHINE.LITTLE[ 2934 ] = { tune = "arm1176jzf-s",  arch = "armv6"   }
 		-- 0xc07
@@ -50,6 +50,8 @@ local MACHINE = {}
 		MACHINE.LITTLE[ 3331 ] = { tune = "cortex-a53", arch = "armv8-a+crc"}
 		-- 0xd05
 		MACHINE.LITTLE[ 3333 ] = { tune = "cortex-a55", arch = "armv8.2-a"  }
+		-- 0xd46
+		MACHINE.LITTLE[ 3398 ] = { tune = "cortex-a510", arch = "armv9-a"   }
 
 -- Implementer Manufacturer ID
 local manIdimplementer = {
@@ -67,17 +69,21 @@ local manIdimplementer = {
 local manIdpart = {
 	-- ARM
 	{ mask = 0xff00fff0, val = 0x4100b760, id = "arm1176jzf-s"  },
-	{ mask = 0xff00fff0, val = 0x4100c090, id = "Cortex-A9"     },
 	{ mask = 0xff00fff0, val = 0x4100c070, id = "Cortex-A7"     },
-	{ mask = 0xff00fff0, val = 0x4100c0f0, id = "Cortex-A15"    },
+	{ mask = 0xff00fff0, val = 0x4100c090, id = "Cortex-A9"     },
 	{ mask = 0xff00fff0, val = 0x4100c0e0, id = "Cortex-A17"    },
+	{ mask = 0xff00fff0, val = 0x4100c0f0, id = "Cortex-A15"    },
 	{ mask = 0xff00fff0, val = 0x4100d030, id = "Cortex-A53"    },
 	{ mask = 0xff00fff0, val = 0x4100d040, id = "Cortex-A35"    },
+	{ mask = 0xff00fff0, val = 0x4100d050, id = "Cortex-A55"    },
 	{ mask = 0xff00fff0, val = 0x4100d070, id = "Cortex-A57"    },
 	{ mask = 0xff00fff0, val = 0x4100d080, id = "Cortex-A72"    },
 	{ mask = 0xff00fff0, val = 0x4100d090, id = "Cortex-A73"    },
 	{ mask = 0xff00fff0, val = 0x4100d0a0, id = "Cortex-A75"    },
-	{ mask = 0xff00fff0, val = 0x4100d050, id = "Cortex-A55"    },
+	{ mask = 0xff00fff0, val = 0x4100d0b0, id = "Cortex-A76"    },
+	{ mask = 0xff00fff0, val = 0x4100d0d0, id = "Cortex-A77"    },
+	{ mask = 0xff00fff0, val = 0x4100d460, id = "Cortex-A510"   },
+	{ mask = 0xff00fff0, val = 0x4100d470, id = "Cortex-A710"   },
 	-- Broadcom
 	{ mask = 0xff00fff0, val = 0x42001000, id = "Brahma-B53" },
 	{ mask = 0xff00fff0, val = 0x42005160, id = "ThunderX2"  },
